@@ -790,7 +790,7 @@
         "kind": 5,
         "importPath": "pathibhara_solution.settings",
         "description": "pathibhara_solution.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / 'static'\n]",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]",
         "detail": "pathibhara_solution.settings",
         "documentation": {}
     },
@@ -799,7 +799,7 @@
         "kind": 5,
         "importPath": "pathibhara_solution.settings",
         "description": "pathibhara_solution.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / 'static'\n]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'static')",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')",
         "detail": "pathibhara_solution.settings",
         "documentation": {}
     },
@@ -808,7 +808,7 @@
         "kind": 5,
         "importPath": "pathibhara_solution.settings",
         "description": "pathibhara_solution.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / 'static'\n]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type",
         "detail": "pathibhara_solution.settings",
         "documentation": {}
     },
@@ -817,7 +817,7 @@
         "kind": 5,
         "importPath": "pathibhara_solution.settings",
         "description": "pathibhara_solution.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / 'static'\n]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field",
         "detail": "pathibhara_solution.settings",
         "documentation": {}
     },
@@ -826,16 +826,16 @@
         "kind": 5,
         "importPath": "pathibhara_solution.settings",
         "description": "pathibhara_solution.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIRS = [\n    BASE_DIR / 'static'\n]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')",
+        "peekOfCode": "STATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')",
         "detail": "pathibhara_solution.settings",
         "documentation": {}
     },
     {
-        "label": "STATICFILES_DIRS",
+        "label": "STATIC_ROOT",
         "kind": 5,
         "importPath": "pathibhara_solution.settings",
         "description": "pathibhara_solution.settings",
-        "peekOfCode": "STATICFILES_DIRS = [\n    BASE_DIR / 'static'\n]\n# STATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\ncustomColorPalette = [",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\ncustomColorPalette = [\n    {\n        'color': 'hsl(4, 90%, 58%)',\n        'label': 'Red'",
         "detail": "pathibhara_solution.settings",
         "documentation": {}
     },
@@ -925,7 +925,7 @@
         "kind": 5,
         "importPath": "pathibhara_solution.urls",
         "description": "pathibhara_solution.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"ckeditor5/\", include('django_ckeditor_5.urls')),\n    path(\"upload/\", custom_upload_function, name=\"custom_upload_file\"),\n    path('', include('frontend.urls')),\n    # path('', include('app.urls')),\n]\nurlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)\n# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"ckeditor5/\", include('django_ckeditor_5.urls')),\n    path(\"upload/\", custom_upload_function, name=\"custom_upload_file\"),\n    path('', include('frontend.urls')),\n    # path('', include('app.urls')),\n]\nurlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)\nurlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)",
         "detail": "pathibhara_solution.urls",
         "documentation": {}
     },
