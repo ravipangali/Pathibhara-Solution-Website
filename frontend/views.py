@@ -10,7 +10,7 @@ def home(request):
         'about': About.objects.first(),
         'projects': Project.objects.all(),
         'testimonials': Testimonial.objects.all(),
-        'team': OurTeam.objects.all(),
+        # 'team': OurTeam.objects.all(),
         'clients': Client.objects.all(),
         'blogs': Blog.objects.all(),
         'categories': Category.objects.all(),

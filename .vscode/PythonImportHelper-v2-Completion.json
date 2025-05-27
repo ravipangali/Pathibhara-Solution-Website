@@ -698,7 +698,7 @@
         "kind": 2,
         "importPath": "frontend.views",
         "description": "frontend.views",
-        "peekOfCode": "def home(request):\n    data = {\n        'site_settings': SiteSetting.objects.first(),\n        'services': Service.objects.all(),\n        'about': About.objects.first(),\n        'projects': Project.objects.all(),\n        'testimonials': Testimonial.objects.all(),\n        'team': OurTeam.objects.all(),\n        'clients': Client.objects.all(),\n        'blogs': Blog.objects.all(),",
+        "peekOfCode": "def home(request):\n    data = {\n        'site_settings': SiteSetting.objects.first(),\n        'services': Service.objects.all(),\n        'about': About.objects.first(),\n        'projects': Project.objects.all(),\n        'testimonials': Testimonial.objects.all(),\n        # 'team': OurTeam.objects.all(),\n        'clients': Client.objects.all(),\n        'blogs': Blog.objects.all(),",
         "detail": "frontend.views",
         "documentation": {}
     },
