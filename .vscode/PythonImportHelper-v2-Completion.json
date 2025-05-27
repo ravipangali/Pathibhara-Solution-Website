@@ -1,0 +1,950 @@
+[
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "django_ckeditor_5.fields",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django_ckeditor_5.fields",
+        "description": "django_ckeditor_5.fields",
+        "detail": "django_ckeditor_5.fields",
+        "documentation": {}
+    },
+    {
+        "label": "CKEditor5Field",
+        "importPath": "django_ckeditor_5.fields",
+        "description": "django_ckeditor_5.fields",
+        "isExtraImport": true,
+        "detail": "django_ckeditor_5.fields",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "format_html",
+        "importPath": "django.utils.html",
+        "description": "django.utils.html",
+        "isExtraImport": true,
+        "detail": "django.utils.html",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "JsonResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_exempt",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "default_storage",
+        "importPath": "django.core.files.storage",
+        "description": "django.core.files.storage",
+        "isExtraImport": true,
+        "detail": "django.core.files.storage",
+        "documentation": {}
+    },
+    {
+        "label": "ContentFile",
+        "importPath": "django.core.files.base",
+        "description": "django.core.files.base",
+        "isExtraImport": true,
+        "detail": "django.core.files.base",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "About",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Blog",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "OurTeam",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Project",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Service",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "SiteSetting",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Testimonial",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "custom_upload_function",
+        "importPath": "app.views",
+        "description": "app.views",
+        "isExtraImport": true,
+        "detail": "app.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0001_initial",
+        "description": "app.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='About',\n            fields=[\n                ('id', models.BigAutoField(primary_key=True, serialize=False)),\n                ('title', models.CharField(max_length=255)),",
+        "detail": "app.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more",
+        "description": "app.migrations.0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='ourteam',\n            name='facebook',\n            field=models.CharField(blank=True, max_length=255, null=True),\n        ),",
+        "detail": "app.migrations.0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "ProductImageInline",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ProductImageInline(admin.TabularInline):\n    model = ProductImage\n    extra = 1\nclass TestimonialInline(admin.TabularInline):\n    model = Testimonial\n    extra = 1\n# Custom Admin classes for each model\n@admin.register(SiteSetting)\nclass SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TestimonialInline",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class TestimonialInline(admin.TabularInline):\n    model = Testimonial\n    extra = 1\n# Custom Admin classes for each model\n@admin.register(SiteSetting)\nclass SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']\n    search_fields = ['name', 'email']\n    fieldsets = (\n        ('Basic Info', {",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SiteSettingAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']\n    search_fields = ['name', 'email']\n    fieldsets = (\n        ('Basic Info', {\n            'fields': ('name', 'email', 'phone', 'address')\n        }),\n        ('Media', {\n            'fields': ('logo', 'hero_image')\n        }),",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "AboutAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class AboutAdmin(admin.ModelAdmin):\n    list_display = ['title', 'created_at']\n    search_fields = ['title']\n    fieldsets = (\n        (None, {\n            'fields': ('title', 'image')\n        }),\n        ('Content', {\n            'fields': ('description', 'mission', 'vision', 'objective')\n        }),",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "OurTeamAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class OurTeamAdmin(admin.ModelAdmin):\n    list_display = ['name', 'designation', 'phone', 'email', 'image_tag']\n    search_fields = ['name', 'designation', 'email']\n    fieldsets = (\n        (None, {\n            'fields': ('name', 'designation', 'phone', 'email', 'image')\n        }),\n        ('Social Media', {\n            'fields': ('facebook', 'instagram', 'twitter', 'linkedin', 'youtube')\n        }),",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CategoryAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class CategoryAdmin(admin.ModelAdmin):\n    list_display = ['name', 'image_tag', 'created_at']\n    search_fields = ['name']\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None\n    image_tag.short_description = 'Image'\n@admin.register(Product)\nclass ProductAdmin(admin.ModelAdmin):",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ProductAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ProductAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'price', 'image_tag', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n    list_editable = ['price']\n    inlines = [ProductImageInline]\n    ordering = ['name']\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ServiceAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n@admin.register(Project)\nclass ProjectAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'image_tag', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n    def image_tag(self, obj):",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ProjectAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'image_tag', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None\n    image_tag.short_description = 'Image'\n@admin.register(Blog)",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "BlogAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class BlogAdmin(admin.ModelAdmin):\n    list_display = ['title', 'image_tag', 'created_at']\n    search_fields = ['title']\n    list_filter = ['created_at']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ClientAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ClientAdmin(admin.ModelAdmin):\n    list_display = ['name', 'image_tag', 'created_at']\n    search_fields = ['name']\n    inlines = [TestimonialInline]\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None\n    image_tag.short_description = 'Image'\n@admin.register(Testimonial)",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TestimonialAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class TestimonialAdmin(admin.ModelAdmin):\n    list_display = ['client', 'message', 'created_at']\n    search_fields = ['client__name', 'message']\n    list_filter = ['client']\n@admin.register(Contact)\nclass ContactAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'created_at']\n    search_fields = ['name', 'email']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ContactAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ContactAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'created_at']\n    search_fields = ['name', 'email']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']\n    def get_readonly_fields(self, request, obj=None):\n        return [f.name for f in self.model._meta.fields]\n    def has_add_permission(self, request):\n        return False",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "kind": 6,
+        "importPath": "app.apps",
+        "description": "app.apps",
+        "peekOfCode": "class AppConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'app'",
+        "detail": "app.apps",
+        "documentation": {}
+    },
+    {
+        "label": "SiteSetting",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class SiteSetting(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    email = models.EmailField(blank=True, null=True)\n    phone = models.CharField(max_length=255, blank=True, null=True)\n    address = models.TextField(blank=True, null=True)\n    logo = models.ImageField(upload_to='logo/', null=True, blank=True)\n    hero_title = models.CharField(max_length=255, blank=True, null=True)\n    hero_subtitle = models.CharField(max_length=255, blank=True, null=True)\n    hero_image = models.ImageField(upload_to='hero/', null=True, blank=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "About",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class About(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    title = models.CharField(max_length=255)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    image = models.ImageField(upload_to='about/', null=True, blank=True)\n    mission = CKEditor5Field(config_name='extends', blank=True, null=True)\n    vision = CKEditor5Field(config_name='extends', blank=True, null=True)\n    objective = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "OurTeam",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class OurTeam(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    designation = models.CharField(max_length=255)\n    phone = models.CharField(max_length=255, blank=True, null=True)\n    email = models.EmailField(blank=True, null=True)\n    image = models.ImageField(upload_to='our_team/', null=True, blank=True)\n    facebook = models.CharField(max_length=255, blank=True, null=True)\n    instagram = models.CharField(max_length=255, blank=True, null=True)\n    twitter = models.CharField(max_length=255, blank=True, null=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Category(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    image = models.ImageField(upload_to='categories/', null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name\nclass Product(models.Model):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Product(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', blank=True, null=True)\n    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)\n    image = models.ImageField(upload_to='products/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductImage",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class ProductImage(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')\n    image = models.ImageField(upload_to='products/', null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\nclass Service(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='services', blank=True, null=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Service",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Service(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='services', blank=True, null=True)\n    icon = models.TextField(blank=True, null=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Project",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Project(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)\n    image = models.ImageField(upload_to='projects/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Blog",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Blog(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    title = models.CharField(max_length=255)\n    image = models.ImageField(upload_to='blogs/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.title\nclass Client(models.Model):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Client(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    image = models.ImageField(upload_to='clients/', null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name\nclass Testimonial(models.Model):\n    id = models.BigAutoField(primary_key=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Testimonial",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Testimonial(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='testimonials')\n    message = models.TextField(blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.client.name\nclass Contact(models.Model):\n    id = models.BigAutoField(primary_key=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Contact",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Contact(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    email = models.EmailField()\n    message = models.TextField()\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)    \n    def __str__(self):\n        return self.name",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "app.urls",
+        "description": "app.urls",
+        "peekOfCode": "urlpatterns = [\n]",
+        "detail": "app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "custom_upload_function",
+        "kind": 2,
+        "importPath": "app.views",
+        "description": "app.views",
+        "peekOfCode": "def custom_upload_function(request):\n    \"\"\"\n    Handles CKEditor 5 file uploads and returns a JSON response with the file URL.\n    \"\"\"\n    if request.method == \"POST\" and request.FILES.get(\"upload\"):\n        uploaded_file = request.FILES[\"upload\"]\n        # Generate a unique filename using UUID\n        filename = f\"{uuid.uuid4().hex}_{uploaded_file.name}\"\n        # Define the upload path\n        upload_path = os.path.join(\"uploads\", \"ckeditor\", filename)",
+        "detail": "app.views",
+        "documentation": {}
+    },
+    {
+        "label": "FrontendConfig",
+        "kind": 6,
+        "importPath": "frontend.apps",
+        "description": "frontend.apps",
+        "peekOfCode": "class FrontendConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'frontend'",
+        "detail": "frontend.apps",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "frontend.urls",
+        "description": "frontend.urls",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n]",
+        "detail": "frontend.urls",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def home(request):\n    data = {\n        'site_settings': SiteSetting.objects.first(),\n        'services': Service.objects.all(),\n        'about': About.objects.first(),\n        'projects': Project.objects.all(),\n        'testimonials': Testimonial.objects.all(),\n        'team': OurTeam.objects.all(),\n        'clients': Client.objects.all(),\n        'blogs': Blog.objects.all(),",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "pathibhara_solution.asgi",
+        "description": "pathibhara_solution.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "pathibhara_solution.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-h+#ur12zi46q@2u4ldy0cbr!td+$!_^he!xdg*xll$r^%byzno'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-h+#ur12zi46q@2u4ldy0cbr!td+$!_^he!xdg*xll$r^%byzno'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "ALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'app',\n    'django_ckeditor_5'",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'pathibhara_solution.urls'",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "ROOT_URLCONF = 'pathibhara_solution.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, 'templates')],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, 'templates')],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'pathibhara_solution.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.0/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nSTATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\n# STATICFILES_DIRS = [\n#     BASE_DIR / 'static'\n# ]\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'static')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\ncustomColorPalette = [\n    {\n        'color': 'hsl(4, 90%, 58%)',\n        'label': 'Red'",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\ncustomColorPalette = [\n    {\n        'color': 'hsl(4, 90%, 58%)',\n        'label': 'Red'\n    },\n    {\n        'color': 'hsl(340, 82%, 52%)',",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\ncustomColorPalette = [\n    {\n        'color': 'hsl(4, 90%, 58%)',\n        'label': 'Red'\n    },\n    {\n        'color': 'hsl(340, 82%, 52%)',\n        'label': 'Pink'",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\ncustomColorPalette = [\n    {\n        'color': 'hsl(4, 90%, 58%)',\n        'label': 'Red'\n    },\n    {\n        'color': 'hsl(340, 82%, 52%)',\n        'label': 'Pink'\n    },",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "customColorPalette",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "customColorPalette = [\n    {\n        'color': 'hsl(4, 90%, 58%)',\n        'label': 'Red'\n    },\n    {\n        'color': 'hsl(340, 82%, 52%)',\n        'label': 'Pink'\n    },\n    {",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CKEDITOR_5_CUSTOM_CSS",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "CKEDITOR_5_CUSTOM_CSS = 'path_to.css' # optional\nCKEDITOR_5_FILE_STORAGE = \"path_to_storage.CustomStorage\" # optional\nCKEDITOR_5_CONFIGS = {\n  'default': {\n      'toolbar': {\n          'items': ['heading', '|', 'bold', 'italic', 'link', 'fontFamily',\n                    'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],\n                  },\n        'fontFamily': {\n            'options': [",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CKEDITOR_5_FILE_STORAGE",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "CKEDITOR_5_FILE_STORAGE = \"path_to_storage.CustomStorage\" # optional\nCKEDITOR_5_CONFIGS = {\n  'default': {\n      'toolbar': {\n          'items': ['heading', '|', 'bold', 'italic', 'link', 'fontFamily',\n                    'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],\n                  },\n        'fontFamily': {\n            'options': [\n                'default',",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CKEDITOR_5_CONFIGS",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "CKEDITOR_5_CONFIGS = {\n  'default': {\n      'toolbar': {\n          'items': ['heading', '|', 'bold', 'italic', 'link', 'fontFamily',\n                    'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],\n                  },\n        'fontFamily': {\n            'options': [\n                'default',\n                'Poppins, sans-serif',",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CKEDITOR_5_FILE_UPLOAD_PERMISSION",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "CKEDITOR_5_FILE_UPLOAD_PERMISSION = 'staff'\nCK_EDITOR_5_UPLOAD_FILE_VIEW_NAME = \"custom_upload_file\"",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME",
+        "kind": 5,
+        "importPath": "pathibhara_solution.settings",
+        "description": "pathibhara_solution.settings",
+        "peekOfCode": "CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME = \"custom_upload_file\"",
+        "detail": "pathibhara_solution.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "pathibhara_solution.urls",
+        "description": "pathibhara_solution.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path(\"ckeditor5/\", include('django_ckeditor_5.urls')),\n    path(\"upload/\", custom_upload_function, name=\"custom_upload_file\"),\n    path('', include('frontend.urls')),\n    # path('', include('app.urls')),\n]\nurlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)\nurlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)",
+        "detail": "pathibhara_solution.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "pathibhara_solution.wsgi",
+        "description": "pathibhara_solution.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "pathibhara_solution.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pathibhara_solution.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "manage",
+        "documentation": {}
+    }
+]
