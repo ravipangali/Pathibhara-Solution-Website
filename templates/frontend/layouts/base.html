@@ -668,10 +668,11 @@
                     <h4>About Us</h4>
                     <p>{{ site_settings.message|default:"Pathibhara Solution is a modern IT company providing innovative solutions for businesses." }}</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ site_settings.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
+                        <a href="{{ site_settings.facebook }}"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{ site_settings.twitter }}"><i class="fab fa-twitter"></i></a>
+                        <a href="{{ site_settings.linkedin }}"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="{{ site_settings.instagram }}"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4">
@@ -691,7 +692,7 @@
                         <li><i class="fas fa-map-marker-alt"></i> {{ site_settings.address|default:"123 Business Street, City, Country" }}</li>
                         <li><i class="fas fa-phone"></i> {{ site_settings.phone|default:"+1 234 567 890" }}</li>
                         <li><i class="fas fa-envelope"></i> {{ site_settings.email|default:"info@pathibharasolution.com" }}</li>
-                        <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</li>
+                        {% comment %} <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</li> {% endcomment %}
                     </ul>
                 </div>
             </div>

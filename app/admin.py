@@ -30,7 +30,7 @@ class SiteSettingAdmin(admin.ModelAdmin):
             'fields': ('hero_title', 'hero_subtitle')
         }),
         ('Social Media', {
-            'fields': ('facebook', 'instagram', 'twitter', 'linkedin', 'youtube')
+            'fields': ('whatsapp', 'facebook', 'instagram', 'twitter', 'linkedin', 'youtube')
         }),
         ('Other', {
             'fields': ('message',)

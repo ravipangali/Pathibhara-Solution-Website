@@ -58,6 +58,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -396,6 +412,15 @@
         "description": "app.migrations.0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='ourteam',\n            name='facebook',\n            field=models.CharField(blank=True, max_length=255, null=True),\n        ),",
         "detail": "app.migrations.0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0003_sitesetting_whatsapp_alter_sitesetting_facebook_and_more",
+        "description": "app.migrations.0003_sitesetting_whatsapp_alter_sitesetting_facebook_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='sitesetting',\n            name='whatsapp',\n            field=models.CharField(blank=True, max_length=500, null=True),\n        ),",
+        "detail": "app.migrations.0003_sitesetting_whatsapp_alter_sitesetting_facebook_and_more",
         "documentation": {}
     },
     {
