@@ -2,16 +2,34 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import (
     SiteSetting, About, OurTeam, Category, Product, ProductImage,
-    Service, Project, Blog, Client, Testimonial, Contact
+    Service, ServiceFeature, ServiceProcess, Project, ProjectImage, 
+    Blog, Client, Testimonial, Contact,
+    Milestone, Statistic, Tag, BlogTag, FAQ, BusinessHour
 )
 
 # Inline classes for related models
-class ProductImageInline(admin.TabularInline):
+class ProductImageInline(admin.StackedInline):
     model = ProductImage
     extra = 1
 
-class TestimonialInline(admin.TabularInline):
+class ProjectImageInline(admin.StackedInline):
+    model = ProjectImage
+    extra = 1
+
+class TestimonialInline(admin.StackedInline):
     model = Testimonial
+    extra = 1
+
+class ServiceFeatureInline(admin.StackedInline):
+    model = ServiceFeature
+    extra = 1
+
+class ServiceProcessInline(admin.StackedInline):
+    model = ServiceProcess
+    extra = 1
+
+class BlogTagInline(admin.StackedInline):
+    model = BlogTag
     extra = 1
 
 # Custom Admin classes for each model
@@ -21,7 +39,7 @@ class SiteSettingAdmin(admin.ModelAdmin):
     search_fields = ['name', 'email']
     fieldsets = (
         ('Basic Info', {
-            'fields': ('name', 'email', 'phone', 'address')
+            'fields': ('name', 'email', 'phone', 'address', 'map_url')
         }),
         ('Media', {
             'fields': ('logo', 'hero_image')
@@ -35,18 +53,26 @@ class SiteSettingAdmin(admin.ModelAdmin):
         ('Other', {
             'fields': ('message',)
         }),
+        ('SEO', {
+            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
+            'classes': ('collapse',),
+        }),
     )
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at']
+    list_display = ['title', 'established_year', 'created_at']
     search_fields = ['title']
     fieldsets = (
         (None, {
-            'fields': ('title', 'image')
+            'fields': ('title', 'image', 'established_year')
         }),
         ('Content', {
             'fields': ('description', 'mission', 'vision', 'objective')
+        }),
+        ('SEO', {
+            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
+            'classes': ('collapse',),
         }),
     )
 
@@ -56,7 +82,7 @@ class OurTeamAdmin(admin.ModelAdmin):
     search_fields = ['name', 'designation', 'email']
     fieldsets = (
         (None, {
-            'fields': ('name', 'designation', 'phone', 'email', 'image')
+            'fields': ('name', 'designation', 'phone', 'email', 'image', 'bio')
         }),
         ('Social Media', {
             'fields': ('facebook', 'instagram', 'twitter', 'linkedin', 'youtube')
@@ -72,6 +98,8 @@ class OurTeamAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'image_tag', 'created_at']
     search_fields = ['name']
+    prepopulated_fields = {'slug': ('name',)}
+    fields = ('name', 'description', 'image', 'slug')
     def image_tag(self, obj):
         if obj.image:
             return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
@@ -80,12 +108,28 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'category', 'price', 'image_tag', 'created_at']
+    list_display = ['name', 'category', 'price', 'image_tag', 'is_featured', 'is_new', 'created_at']
     search_fields = ['name']
-    list_filter = ['category']
-    list_editable = ['price']
+    list_filter = ['category', 'is_featured', 'is_new']
+    list_editable = ['price', 'is_featured', 'is_new']
     inlines = [ProductImageInline]
     ordering = ['name']
+    prepopulated_fields = {'slug': ('name',)}
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'category', 'price', 'image', 'slug')
+        }),
+        ('Status', {
+            'fields': ('is_featured', 'is_new')
+        }),
+        ('Content', {
+            'fields': ('description',)
+        }),
+        ('SEO', {
+            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
+            'classes': ('collapse',),
+        }),
+    )
     def image_tag(self, obj):
         if obj.image:
             return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
@@ -97,12 +141,43 @@ class ServiceAdmin(admin.ModelAdmin):
     list_display = ['name', 'category', 'created_at']
     search_fields = ['name']
     list_filter = ['category']
+    prepopulated_fields = {'slug': ('name',)}
+    inlines = [ServiceFeatureInline, ServiceProcessInline]
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'category', 'icon', 'slug')
+        }),
+        ('Content', {
+            'fields': ('description',)
+        }),
+        ('SEO', {
+            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
+            'classes': ('collapse',),
+        }),
+    )
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['name', 'category', 'image_tag', 'created_at']
-    search_fields = ['name']
-    list_filter = ['category']
+    list_display = ['name', 'category', 'client', 'completion_date', 'image_tag', 'created_at']
+    search_fields = ['name', 'client']
+    list_filter = ['category', 'completion_date']
+    inlines = [ProjectImageInline]
+    prepopulated_fields = {'slug': ('name',)}
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'category', 'image', 'slug')
+        }),
+        ('Project Details', {
+            'fields': ('client', 'completion_date', 'demo_url', 'technologies')
+        }),
+        ('Content', {
+            'fields': ('description',)
+        }),
+        ('SEO', {
+            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
+            'classes': ('collapse',),
+        }),
+    )
     def image_tag(self, obj):
         if obj.image:
             return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
@@ -111,11 +186,25 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ['title', 'image_tag', 'created_at']
-    search_fields = ['title']
-    list_filter = ['created_at']
+    list_display = ['title', 'author', 'category', 'image_tag', 'created_at']
+    search_fields = ['title', 'author__name', 'category__name']
+    list_filter = ['created_at', 'author', 'category']
+    prepopulated_fields = {'slug': ('title',)}
     date_hierarchy = 'created_at'
     ordering = ['-created_at']
+    inlines = [BlogTagInline]
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'author', 'category', 'image', 'slug')
+        }),
+        ('Content', {
+            'fields': ('description',)
+        }),
+        ('SEO', {
+            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
+            'classes': ('collapse',),
+        }),
+    )
     def image_tag(self, obj):
         if obj.image:
             return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
@@ -124,9 +213,10 @@ class BlogAdmin(admin.ModelAdmin):
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ['name', 'image_tag', 'created_at']
+    list_display = ['name', 'designation', 'website', 'image_tag', 'created_at']
     search_fields = ['name']
     inlines = [TestimonialInline]
+    fields = ('name', 'image', 'designation', 'website')
     def image_tag(self, obj):
         if obj.image:
             return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
@@ -135,17 +225,74 @@ class ClientAdmin(admin.ModelAdmin):
 
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ['client', 'message', 'created_at']
+    list_display = ['client', 'rating', 'created_at']
     search_fields = ['client__name', 'message']
-    list_filter = ['client']
+    list_filter = ['client', 'rating']
+    fields = ('client', 'message', 'rating')
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'created_at']
-    search_fields = ['name', 'email']
+    list_display = ['name', 'email', 'subject', 'created_at']
+    search_fields = ['name', 'email', 'subject']
     date_hierarchy = 'created_at'
     ordering = ['-created_at']
     def get_readonly_fields(self, request, obj=None):
         return [f.name for f in self.model._meta.fields]
     def has_add_permission(self, request):
         return False
+
+# @admin.register(ServiceFeature)
+# class ServiceFeatureAdmin(admin.ModelAdmin):
+#     list_display = ['title', 'service', 'order', 'created_at']
+#     list_filter = ['service']
+#     search_fields = ['title', 'service__name']
+#     list_editable = ['order']
+#     fields = ('service', 'title', 'description', 'icon', 'order')
+
+# @admin.register(ServiceProcess)
+# class ServiceProcessAdmin(admin.ModelAdmin):
+#     list_display = ['title', 'service', 'order', 'created_at']
+#     list_filter = ['service']
+#     search_fields = ['title', 'service__name']
+#     list_editable = ['order']
+#     fields = ('service', 'title', 'description', 'order')
+
+@admin.register(Milestone)
+class MilestoneAdmin(admin.ModelAdmin):
+    list_display = ['year', 'title', 'order', 'created_at']
+    search_fields = ['year', 'title', 'description']
+    list_filter = ['year']
+    list_editable = ['order']
+    ordering = ['order', 'year']
+    fields = ('year', 'title', 'description', 'order')
+
+@admin.register(Statistic)
+class StatisticAdmin(admin.ModelAdmin):
+    list_display = ['title', 'value', 'icon', 'order']
+    search_fields = ['title']
+    list_editable = ['value', 'order']
+    ordering = ['order']
+    fields = ('title', 'value', 'icon', 'order')
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug', 'created_at']
+    search_fields = ['name']
+    prepopulated_fields = {'slug': ('name',)}
+    ordering = ['name']
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ['question', 'order', 'is_active', 'created_at']
+    search_fields = ['question', 'answer']
+    list_filter = ['is_active']
+    list_editable = ['order', 'is_active']
+    ordering = ['order']
+    fields = ('question', 'answer', 'order', 'is_active')
+
+@admin.register(BusinessHour)
+class BusinessHourAdmin(admin.ModelAdmin):
+    list_display = ['day', 'opening_time', 'closing_time', 'is_closed', 'order']
+    list_editable = ['opening_time', 'closing_time', 'is_closed', 'order']
+    ordering = ['order']
+    fields = ('day', 'opening_time', 'closing_time', 'is_closed', 'order')

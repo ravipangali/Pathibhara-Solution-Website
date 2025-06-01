@@ -74,6 +74,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -99,6 +115,14 @@
     },
     {
         "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "messages",
         "importPath": "django.contrib",
         "description": "django.contrib",
         "isExtraImport": true,
@@ -135,6 +159,14 @@
         "description": "django.apps",
         "isExtraImport": true,
         "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "slugify",
+        "importPath": "django.utils.text",
+        "description": "django.utils.text",
+        "isExtraImport": true,
+        "detail": "django.utils.text",
         "documentation": {}
     },
     {
@@ -186,22 +218,6 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
         "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
@@ -216,6 +232,14 @@
         "description": "django.http",
         "isExtraImport": true,
         "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -268,6 +292,38 @@
         "documentation": {}
     },
     {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "About",
         "importPath": "app.models",
         "description": "app.models",
@@ -316,6 +372,14 @@
         "documentation": {}
     },
     {
+        "label": "ProductImage",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "Project",
         "importPath": "app.models",
         "description": "app.models",
@@ -324,7 +388,31 @@
         "documentation": {}
     },
     {
+        "label": "ProjectImage",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "Service",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceFeature",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceProcess",
         "importPath": "app.models",
         "description": "app.models",
         "isExtraImport": true,
@@ -345,6 +433,54 @@
         "description": "app.models",
         "isExtraImport": true,
         "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Milestone",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Statistic",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "FAQ",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "BusinessHour",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "send_mail",
+        "importPath": "django.core.mail",
+        "description": "django.core.mail",
+        "isExtraImport": true,
+        "detail": "django.core.mail",
         "documentation": {}
     },
     {
@@ -408,19 +544,28 @@
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "app.migrations.0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more",
-        "description": "app.migrations.0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='ourteam',\n            name='facebook',\n            field=models.CharField(blank=True, max_length=255, null=True),\n        ),",
-        "detail": "app.migrations.0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more",
+        "importPath": "app.migrations.0002_businesshour_faq_milestone_statistic_tag_blogtag",
+        "description": "app.migrations.0002_businesshour_faq_milestone_statistic_tag_blogtag",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='BusinessHour',\n            fields=[\n                ('id', models.BigAutoField(primary_key=True, serialize=False)),\n                ('day', models.CharField(max_length=20)),",
+        "detail": "app.migrations.0002_businesshour_faq_milestone_statistic_tag_blogtag",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "app.migrations.0003_sitesetting_whatsapp_alter_sitesetting_facebook_and_more",
-        "description": "app.migrations.0003_sitesetting_whatsapp_alter_sitesetting_facebook_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0002_ourteam_facebook_ourteam_instagram_ourteam_linkedin_and_more'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='sitesetting',\n            name='whatsapp',\n            field=models.CharField(blank=True, max_length=500, null=True),\n        ),",
-        "detail": "app.migrations.0003_sitesetting_whatsapp_alter_sitesetting_facebook_and_more",
+        "importPath": "app.migrations.0003_product_is_featured_product_is_new_project_client_and_more",
+        "description": "app.migrations.0003_product_is_featured_product_is_new_project_client_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0002_businesshour_faq_milestone_statistic_tag_blogtag'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='product',\n            name='is_featured',\n            field=models.BooleanField(default=False),\n        ),",
+        "detail": "app.migrations.0003_product_is_featured_product_is_new_project_client_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0004_sitesetting_map_url",
+        "description": "app.migrations.0004_sitesetting_map_url",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0003_product_is_featured_product_is_new_project_client_and_more'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='sitesetting',\n            name='map_url',\n            field=models.TextField(blank=True, null=True),\n        ),",
+        "detail": "app.migrations.0004_sitesetting_map_url",
         "documentation": {}
     },
     {
@@ -428,7 +573,16 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class ProductImageInline(admin.TabularInline):\n    model = ProductImage\n    extra = 1\nclass TestimonialInline(admin.TabularInline):\n    model = Testimonial\n    extra = 1\n# Custom Admin classes for each model\n@admin.register(SiteSetting)\nclass SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']",
+        "peekOfCode": "class ProductImageInline(admin.StackedInline):\n    model = ProductImage\n    extra = 1\nclass ProjectImageInline(admin.StackedInline):\n    model = ProjectImage\n    extra = 1\nclass TestimonialInline(admin.StackedInline):\n    model = Testimonial\n    extra = 1\nclass ServiceFeatureInline(admin.StackedInline):",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectImageInline",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ProjectImageInline(admin.StackedInline):\n    model = ProjectImage\n    extra = 1\nclass TestimonialInline(admin.StackedInline):\n    model = Testimonial\n    extra = 1\nclass ServiceFeatureInline(admin.StackedInline):\n    model = ServiceFeature\n    extra = 1\nclass ServiceProcessInline(admin.StackedInline):",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -437,7 +591,34 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class TestimonialInline(admin.TabularInline):\n    model = Testimonial\n    extra = 1\n# Custom Admin classes for each model\n@admin.register(SiteSetting)\nclass SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']\n    search_fields = ['name', 'email']\n    fieldsets = (\n        ('Basic Info', {",
+        "peekOfCode": "class TestimonialInline(admin.StackedInline):\n    model = Testimonial\n    extra = 1\nclass ServiceFeatureInline(admin.StackedInline):\n    model = ServiceFeature\n    extra = 1\nclass ServiceProcessInline(admin.StackedInline):\n    model = ServiceProcess\n    extra = 1\nclass BlogTagInline(admin.StackedInline):",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceFeatureInline",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ServiceFeatureInline(admin.StackedInline):\n    model = ServiceFeature\n    extra = 1\nclass ServiceProcessInline(admin.StackedInline):\n    model = ServiceProcess\n    extra = 1\nclass BlogTagInline(admin.StackedInline):\n    model = BlogTag\n    extra = 1\n# Custom Admin classes for each model",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceProcessInline",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class ServiceProcessInline(admin.StackedInline):\n    model = ServiceProcess\n    extra = 1\nclass BlogTagInline(admin.StackedInline):\n    model = BlogTag\n    extra = 1\n# Custom Admin classes for each model\n@admin.register(SiteSetting)\nclass SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "BlogTagInline",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class BlogTagInline(admin.StackedInline):\n    model = BlogTag\n    extra = 1\n# Custom Admin classes for each model\n@admin.register(SiteSetting)\nclass SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']\n    search_fields = ['name', 'email']\n    fieldsets = (\n        ('Basic Info', {",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -446,7 +627,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']\n    search_fields = ['name', 'email']\n    fieldsets = (\n        ('Basic Info', {\n            'fields': ('name', 'email', 'phone', 'address')\n        }),\n        ('Media', {\n            'fields': ('logo', 'hero_image')\n        }),",
+        "peekOfCode": "class SiteSettingAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'phone', 'created_at']\n    search_fields = ['name', 'email']\n    fieldsets = (\n        ('Basic Info', {\n            'fields': ('name', 'email', 'phone', 'address', 'map_url')\n        }),\n        ('Media', {\n            'fields': ('logo', 'hero_image')\n        }),",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -455,7 +636,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class AboutAdmin(admin.ModelAdmin):\n    list_display = ['title', 'created_at']\n    search_fields = ['title']\n    fieldsets = (\n        (None, {\n            'fields': ('title', 'image')\n        }),\n        ('Content', {\n            'fields': ('description', 'mission', 'vision', 'objective')\n        }),",
+        "peekOfCode": "class AboutAdmin(admin.ModelAdmin):\n    list_display = ['title', 'established_year', 'created_at']\n    search_fields = ['title']\n    fieldsets = (\n        (None, {\n            'fields': ('title', 'image', 'established_year')\n        }),\n        ('Content', {\n            'fields': ('description', 'mission', 'vision', 'objective')\n        }),",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -464,7 +645,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class OurTeamAdmin(admin.ModelAdmin):\n    list_display = ['name', 'designation', 'phone', 'email', 'image_tag']\n    search_fields = ['name', 'designation', 'email']\n    fieldsets = (\n        (None, {\n            'fields': ('name', 'designation', 'phone', 'email', 'image')\n        }),\n        ('Social Media', {\n            'fields': ('facebook', 'instagram', 'twitter', 'linkedin', 'youtube')\n        }),",
+        "peekOfCode": "class OurTeamAdmin(admin.ModelAdmin):\n    list_display = ['name', 'designation', 'phone', 'email', 'image_tag']\n    search_fields = ['name', 'designation', 'email']\n    fieldsets = (\n        (None, {\n            'fields': ('name', 'designation', 'phone', 'email', 'image', 'bio')\n        }),\n        ('Social Media', {\n            'fields': ('facebook', 'instagram', 'twitter', 'linkedin', 'youtube')\n        }),",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -473,7 +654,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class CategoryAdmin(admin.ModelAdmin):\n    list_display = ['name', 'image_tag', 'created_at']\n    search_fields = ['name']\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None\n    image_tag.short_description = 'Image'\n@admin.register(Product)\nclass ProductAdmin(admin.ModelAdmin):",
+        "peekOfCode": "class CategoryAdmin(admin.ModelAdmin):\n    list_display = ['name', 'image_tag', 'created_at']\n    search_fields = ['name']\n    prepopulated_fields = {'slug': ('name',)}\n    fields = ('name', 'description', 'image', 'slug')\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None\n    image_tag.short_description = 'Image'",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -482,7 +663,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class ProductAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'price', 'image_tag', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n    list_editable = ['price']\n    inlines = [ProductImageInline]\n    ordering = ['name']\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)",
+        "peekOfCode": "class ProductAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'price', 'image_tag', 'is_featured', 'is_new', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category', 'is_featured', 'is_new']\n    list_editable = ['price', 'is_featured', 'is_new']\n    inlines = [ProductImageInline]\n    ordering = ['name']\n    prepopulated_fields = {'slug': ('name',)}\n    fieldsets = (\n        (None, {",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -491,7 +672,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class ServiceAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n@admin.register(Project)\nclass ProjectAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'image_tag', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n    def image_tag(self, obj):",
+        "peekOfCode": "class ServiceAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n    prepopulated_fields = {'slug': ('name',)}\n    inlines = [ServiceFeatureInline, ServiceProcessInline]\n    fieldsets = (\n        (None, {\n            'fields': ('name', 'category', 'icon', 'slug')\n        }),",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -500,7 +681,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class ProjectAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'image_tag', 'created_at']\n    search_fields = ['name']\n    list_filter = ['category']\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None\n    image_tag.short_description = 'Image'\n@admin.register(Blog)",
+        "peekOfCode": "class ProjectAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'client', 'completion_date', 'image_tag', 'created_at']\n    search_fields = ['name', 'client']\n    list_filter = ['category', 'completion_date']\n    inlines = [ProjectImageInline]\n    prepopulated_fields = {'slug': ('name',)}\n    fieldsets = (\n        (None, {\n            'fields': ('name', 'category', 'image', 'slug')\n        }),",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -509,7 +690,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class BlogAdmin(admin.ModelAdmin):\n    list_display = ['title', 'image_tag', 'created_at']\n    search_fields = ['title']\n    list_filter = ['created_at']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None",
+        "peekOfCode": "class BlogAdmin(admin.ModelAdmin):\n    list_display = ['title', 'author', 'category', 'image_tag', 'created_at']\n    search_fields = ['title', 'author__name', 'category__name']\n    list_filter = ['created_at', 'author', 'category']\n    prepopulated_fields = {'slug': ('title',)}\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']\n    inlines = [BlogTagInline]\n    fieldsets = (\n        (None, {",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -518,7 +699,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class ClientAdmin(admin.ModelAdmin):\n    list_display = ['name', 'image_tag', 'created_at']\n    search_fields = ['name']\n    inlines = [TestimonialInline]\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None\n    image_tag.short_description = 'Image'\n@admin.register(Testimonial)",
+        "peekOfCode": "class ClientAdmin(admin.ModelAdmin):\n    list_display = ['name', 'designation', 'website', 'image_tag', 'created_at']\n    search_fields = ['name']\n    inlines = [TestimonialInline]\n    fields = ('name', 'image', 'designation', 'website')\n    def image_tag(self, obj):\n        if obj.image:\n            return format_html('<img src=\"{}\" width=\"50\" height=\"50\" />', obj.image.url)\n        return None\n    image_tag.short_description = 'Image'",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -527,7 +708,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class TestimonialAdmin(admin.ModelAdmin):\n    list_display = ['client', 'message', 'created_at']\n    search_fields = ['client__name', 'message']\n    list_filter = ['client']\n@admin.register(Contact)\nclass ContactAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'created_at']\n    search_fields = ['name', 'email']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']",
+        "peekOfCode": "class TestimonialAdmin(admin.ModelAdmin):\n    list_display = ['client', 'rating', 'created_at']\n    search_fields = ['client__name', 'message']\n    list_filter = ['client', 'rating']\n    fields = ('client', 'message', 'rating')\n@admin.register(Contact)\nclass ContactAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'subject', 'created_at']\n    search_fields = ['name', 'email', 'subject']\n    date_hierarchy = 'created_at'",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -536,7 +717,52 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class ContactAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'created_at']\n    search_fields = ['name', 'email']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']\n    def get_readonly_fields(self, request, obj=None):\n        return [f.name for f in self.model._meta.fields]\n    def has_add_permission(self, request):\n        return False",
+        "peekOfCode": "class ContactAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'subject', 'created_at']\n    search_fields = ['name', 'email', 'subject']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']\n    def get_readonly_fields(self, request, obj=None):\n        return [f.name for f in self.model._meta.fields]\n    def has_add_permission(self, request):\n        return False\n# @admin.register(ServiceFeature)",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "MilestoneAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class MilestoneAdmin(admin.ModelAdmin):\n    list_display = ['year', 'title', 'order', 'created_at']\n    search_fields = ['year', 'title', 'description']\n    list_filter = ['year']\n    list_editable = ['order']\n    ordering = ['order', 'year']\n    fields = ('year', 'title', 'description', 'order')\n@admin.register(Statistic)\nclass StatisticAdmin(admin.ModelAdmin):\n    list_display = ['title', 'value', 'icon', 'order']",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "StatisticAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class StatisticAdmin(admin.ModelAdmin):\n    list_display = ['title', 'value', 'icon', 'order']\n    search_fields = ['title']\n    list_editable = ['value', 'order']\n    ordering = ['order']\n    fields = ('title', 'value', 'icon', 'order')\n@admin.register(Tag)\nclass TagAdmin(admin.ModelAdmin):\n    list_display = ['name', 'slug', 'created_at']\n    search_fields = ['name']",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TagAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class TagAdmin(admin.ModelAdmin):\n    list_display = ['name', 'slug', 'created_at']\n    search_fields = ['name']\n    prepopulated_fields = {'slug': ('name',)}\n    ordering = ['name']\n@admin.register(FAQ)\nclass FAQAdmin(admin.ModelAdmin):\n    list_display = ['question', 'order', 'is_active', 'created_at']\n    search_fields = ['question', 'answer']\n    list_filter = ['is_active']",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "FAQAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class FAQAdmin(admin.ModelAdmin):\n    list_display = ['question', 'order', 'is_active', 'created_at']\n    search_fields = ['question', 'answer']\n    list_filter = ['is_active']\n    list_editable = ['order', 'is_active']\n    ordering = ['order']\n    fields = ('question', 'answer', 'order', 'is_active')\n@admin.register(BusinessHour)\nclass BusinessHourAdmin(admin.ModelAdmin):\n    list_display = ['day', 'opening_time', 'closing_time', 'is_closed', 'order']",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "BusinessHourAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class BusinessHourAdmin(admin.ModelAdmin):\n    list_display = ['day', 'opening_time', 'closing_time', 'is_closed', 'order']\n    list_editable = ['opening_time', 'closing_time', 'is_closed', 'order']\n    ordering = ['order']\n    fields = ('day', 'opening_time', 'closing_time', 'is_closed', 'order')",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -554,7 +780,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class SiteSetting(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    email = models.EmailField(blank=True, null=True)\n    phone = models.CharField(max_length=255, blank=True, null=True)\n    address = models.TextField(blank=True, null=True)\n    logo = models.ImageField(upload_to='logo/', null=True, blank=True)\n    hero_title = models.CharField(max_length=255, blank=True, null=True)\n    hero_subtitle = models.CharField(max_length=255, blank=True, null=True)\n    hero_image = models.ImageField(upload_to='hero/', null=True, blank=True)",
+        "peekOfCode": "class SiteSetting(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    email = models.EmailField(blank=True, null=True)\n    phone = models.CharField(max_length=255, blank=True, null=True)\n    address = models.TextField(blank=True, null=True)\n    map_url = models.TextField(blank=True, null=True)\n    logo = models.ImageField(upload_to='logo/', null=True, blank=True)\n    hero_title = models.CharField(max_length=255, blank=True, null=True)\n    hero_subtitle = models.CharField(max_length=255, blank=True, null=True)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -563,7 +789,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class About(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    title = models.CharField(max_length=255)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    image = models.ImageField(upload_to='about/', null=True, blank=True)\n    mission = CKEditor5Field(config_name='extends', blank=True, null=True)\n    vision = CKEditor5Field(config_name='extends', blank=True, null=True)\n    objective = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)",
+        "peekOfCode": "class About(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    title = models.CharField(max_length=255)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    image = models.ImageField(upload_to='about/', null=True, blank=True)\n    mission = CKEditor5Field(config_name='extends', blank=True, null=True)\n    vision = CKEditor5Field(config_name='extends', blank=True, null=True)\n    objective = CKEditor5Field(config_name='extends', blank=True, null=True)\n    established_year = models.CharField(max_length=4, blank=True, null=True)\n    # SEO fields",
         "detail": "app.models",
         "documentation": {}
     },
@@ -572,7 +798,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class OurTeam(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    designation = models.CharField(max_length=255)\n    phone = models.CharField(max_length=255, blank=True, null=True)\n    email = models.EmailField(blank=True, null=True)\n    image = models.ImageField(upload_to='our_team/', null=True, blank=True)\n    facebook = models.CharField(max_length=255, blank=True, null=True)\n    instagram = models.CharField(max_length=255, blank=True, null=True)\n    twitter = models.CharField(max_length=255, blank=True, null=True)",
+        "peekOfCode": "class OurTeam(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    designation = models.CharField(max_length=255)\n    phone = models.CharField(max_length=255, blank=True, null=True)\n    email = models.EmailField(blank=True, null=True)\n    image = models.ImageField(upload_to='our_team/', null=True, blank=True)\n    bio = models.TextField(blank=True, null=True)\n    facebook = models.CharField(max_length=255, blank=True, null=True)\n    instagram = models.CharField(max_length=255, blank=True, null=True)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -581,7 +807,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Category(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    image = models.ImageField(upload_to='categories/', null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name\nclass Product(models.Model):",
+        "peekOfCode": "class Category(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    image = models.ImageField(upload_to='categories/', null=True, blank=True)\n    slug = models.SlugField(max_length=255, unique=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name",
         "detail": "app.models",
         "documentation": {}
     },
@@ -590,7 +816,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Product(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', blank=True, null=True)\n    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)\n    image = models.ImageField(upload_to='products/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):",
+        "peekOfCode": "class Product(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', blank=True, null=True)\n    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)\n    image = models.ImageField(upload_to='products/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    slug = models.SlugField(max_length=255, unique=True, blank=True)\n    is_featured = models.BooleanField(default=False)\n    is_new = models.BooleanField(default=False)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -608,7 +834,25 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Service(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='services', blank=True, null=True)\n    icon = models.TextField(blank=True, null=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Service(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='services', blank=True, null=True)\n    icon = models.TextField(blank=True, null=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)\n    # SEO fields\n    meta_title = models.CharField(max_length=100, blank=True, null=True)\n    meta_description = models.TextField(max_length=160, blank=True, null=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceFeature",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class ServiceFeature(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='features')\n    title = models.CharField(max_length=255)\n    description = models.TextField()\n    icon = models.CharField(max_length=50, blank=True, null=True, help_text=\"FontAwesome icon class (e.g., fa-laptop-code)\")\n    order = models.IntegerField(default=0)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "ServiceProcess",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class ServiceProcess(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='processes')\n    title = models.CharField(max_length=255)\n    description = models.TextField()\n    order = models.IntegerField(default=0)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        ordering = ['order']",
         "detail": "app.models",
         "documentation": {}
     },
@@ -617,7 +861,16 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Project(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)\n    image = models.ImageField(upload_to='projects/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Project(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)\n    image = models.ImageField(upload_to='projects/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)\n    client = models.CharField(max_length=255, blank=True, null=True)\n    completion_date = models.DateField(blank=True, null=True)\n    demo_url = models.URLField(blank=True, null=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectImage",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class ProjectImage(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='images')\n    image = models.ImageField(upload_to='projects/', null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return f\"{self.project.name} - Image\"\nclass Blog(models.Model):\n    id = models.BigAutoField(primary_key=True)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -626,7 +879,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Blog(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    title = models.CharField(max_length=255)\n    image = models.ImageField(upload_to='blogs/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.title\nclass Client(models.Model):",
+        "peekOfCode": "class Blog(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    title = models.CharField(max_length=255)\n    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)\n    image = models.ImageField(upload_to='blogs/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    author = models.ForeignKey(OurTeam, on_delete=models.SET_NULL, null=True, blank=True, related_name='blogs')\n    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='blogs')\n    # SEO fields\n    meta_title = models.CharField(max_length=100, blank=True, null=True)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -635,7 +888,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Client(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    image = models.ImageField(upload_to='clients/', null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name\nclass Testimonial(models.Model):\n    id = models.BigAutoField(primary_key=True)",
+        "peekOfCode": "class Client(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    image = models.ImageField(upload_to='clients/', null=True, blank=True)\n    designation = models.CharField(max_length=255, blank=True, null=True)\n    website = models.URLField(blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name",
         "detail": "app.models",
         "documentation": {}
     },
@@ -644,7 +897,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Testimonial(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='testimonials')\n    message = models.TextField(blank=True, null=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.client.name\nclass Contact(models.Model):\n    id = models.BigAutoField(primary_key=True)",
+        "peekOfCode": "class Testimonial(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='testimonials')\n    message = models.TextField(blank=True, null=True)\n    rating = models.IntegerField(default=5, choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')])\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.client.name\nclass Contact(models.Model):",
         "detail": "app.models",
         "documentation": {}
     },
@@ -653,7 +906,61 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Contact(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    email = models.EmailField()\n    message = models.TextField()\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)    \n    def __str__(self):\n        return self.name",
+        "peekOfCode": "class Contact(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    email = models.EmailField()\n    subject = models.CharField(max_length=255, blank=True, null=True)\n    message = models.TextField()\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)    \n    def __str__(self):\n        return self.name",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Milestone",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Milestone(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    year = models.CharField(max_length=4)\n    title = models.CharField(max_length=255)\n    description = models.TextField()\n    order = models.IntegerField(default=0)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        ordering = ['order', 'year']",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Statistic",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Statistic(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    title = models.CharField(max_length=100)\n    value = models.IntegerField()\n    icon = models.CharField(max_length=50, help_text=\"FontAwesome icon class (e.g., fa-users)\")\n    order = models.IntegerField(default=0)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        ordering = ['order']",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Tag(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=100)\n    slug = models.SlugField(max_length=100, unique=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return self.name\n    def save(self, *args, **kwargs):\n        if not self.slug:",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "BlogTag",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class BlogTag(models.Model):\n    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='tags')\n    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='blogs')\n    created_at = models.DateTimeField(auto_now_add=True)\n    class Meta:\n        unique_together = ('blog', 'tag')\n    def __str__(self):\n        return f\"{self.blog.title} - {self.tag.name}\"\nclass FAQ(models.Model):\n    id = models.BigAutoField(primary_key=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "FAQ",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class FAQ(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    question = models.CharField(max_length=255)\n    answer = models.TextField()\n    order = models.IntegerField(default=0)\n    is_active = models.BooleanField(default=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        ordering = ['order']",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "BusinessHour",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class BusinessHour(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    day = models.CharField(max_length=20)\n    opening_time = models.CharField(max_length=20, blank=True, null=True)\n    closing_time = models.CharField(max_length=20, blank=True, null=True)\n    is_closed = models.BooleanField(default=False)\n    order = models.IntegerField(default=0)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:",
         "detail": "app.models",
         "documentation": {}
     },
@@ -662,7 +969,7 @@
         "kind": 5,
         "importPath": "app.urls",
         "description": "app.urls",
-        "peekOfCode": "urlpatterns = [\n]",
+        "peekOfCode": "urlpatterns = [\n    path('ckeditor/upload/', views.custom_upload_function, name='ckeditor_upload'),\n]",
         "detail": "app.urls",
         "documentation": {}
     },
@@ -689,7 +996,7 @@
         "kind": 5,
         "importPath": "frontend.urls",
         "description": "frontend.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    path('about/', views.about, name='about'),\n    path('services/', views.services, name='services'),\n    path('services/<slug:slug>/', views.service_detail, name='service_detail'),\n    path('products/', views.products, name='products'),\n    path('products/<slug:slug>/', views.product_detail, name='product_detail'),\n    path('projects/', views.projects, name='projects'),\n    path('projects/<slug:slug>/', views.project_detail, name='project_detail'),\n    path('blog/', views.blog, name='blog'),",
         "detail": "frontend.urls",
         "documentation": {}
     },
@@ -698,7 +1005,97 @@
         "kind": 2,
         "importPath": "frontend.views",
         "description": "frontend.views",
-        "peekOfCode": "def home(request):\n    data = {\n        'site_settings': SiteSetting.objects.first(),\n        'services': Service.objects.all(),\n        'about': About.objects.first(),\n        'projects': Project.objects.all(),\n        'testimonials': Testimonial.objects.all(),\n        # 'team': OurTeam.objects.all(),\n        'clients': Client.objects.all(),\n        'blogs': Blog.objects.all(),",
+        "peekOfCode": "def home(request):\n    data = {\n        'site_settings': SiteSetting.objects.first(),\n        'services': Service.objects.all(),\n        'about': About.objects.first(),\n        'projects': Project.objects.all(),\n        'testimonials': Testimonial.objects.all(),\n        'team': OurTeam.objects.all(),\n        'clients': Client.objects.all(),\n        'blogs': Blog.objects.all(),",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "about",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def about(request):\n    \"\"\"About page view\"\"\"\n    context = {\n        'title': 'About Us',\n        'about': About.objects.first(),\n        'team_members': OurTeam.objects.all(),\n        'testimonials': Testimonial.objects.all(),\n        'site_settings': SiteSetting.objects.first(),\n        'milestones': Milestone.objects.all(),\n        'stats': Statistic.objects.all(),",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "services",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def services(request):\n    \"\"\"Services page view\"\"\"\n    context = {\n        'title': 'Our Services',\n        'services': Service.objects.all(),\n        'faqs': FAQ.objects.all(),\n        'categories': Category.objects.all(),\n        'site_settings': SiteSetting.objects.first(),\n    }\n    return render(request, 'frontend/services.html', context)",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "service_detail",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def service_detail(request, slug):\n    \"\"\"Service detail page view\"\"\"\n    service = get_object_or_404(Service, slug=slug)\n    related_services = Service.objects.exclude(id=service.id)[:3]\n    context = {\n        'testimonials': Testimonial.objects.all(),\n        'title': service.name,\n        'meta_title': service.meta_title or service.name,\n        'meta_description': service.meta_description or service.description[:160] if service.description else '',\n        'meta_keywords': service.meta_keywords,",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "products",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def products(request):\n    \"\"\"Products page view\"\"\"\n    context = {\n        'title': 'Our Products',\n        'products': Product.objects.all(),\n        'categories': Category.objects.all(),\n        'site_settings': SiteSetting.objects.first(),\n        'featured_products': Product.objects.filter(is_featured=True),\n        'new_products': Product.objects.filter(is_new=True),\n    }",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "product_detail",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def product_detail(request, slug):\n    \"\"\"Product detail page view\"\"\"\n    product = get_object_or_404(Product, slug=slug)\n    product_images = product.images.all() if hasattr(product, 'images') else []\n    related_products = Product.objects.exclude(id=product.id)[:3]\n    context = {\n        'title': product.name,\n        'meta_title': product.meta_title or product.name,\n        'meta_description': product.meta_description or product.description[:160] if product.description else '',\n        'meta_keywords': product.meta_keywords,",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "projects",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def projects(request):\n    \"\"\"Projects page view\"\"\"\n    context = {\n        'title': 'Our Projects',\n        'testimonials': Testimonial.objects.all(),\n        'projects': Project.objects.all(),\n        'categories': Category.objects.all(),\n        'stats': Statistic.objects.all(),\n        'site_settings': SiteSetting.objects.first(),\n    }",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "project_detail",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def project_detail(request, slug):\n    \"\"\"Project detail page view\"\"\"\n    project = get_object_or_404(Project, slug=slug)\n    project_images = project.images.all() if hasattr(project, 'images') else []\n    related_projects = Project.objects.exclude(id=project.id)[:3]\n    context = {\n        'title': project.name,\n        'meta_title': project.meta_title or project.name,\n        'meta_description': project.meta_description or project.description[:160] if project.description else '',\n        'meta_keywords': project.meta_keywords,",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "blog",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def blog(request):\n    \"\"\"Blog page view\"\"\"\n    blogs = Blog.objects.all().order_by('-created_at')\n    featured_post = blogs.first()\n    context = {\n        'title': 'Our Blog',\n        'meta_description': 'Read the latest news, tips, and insights on our blog.',\n        'posts': blogs,\n        'featured_post': featured_post,\n        'categories': Category.objects.all(),",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "blog_detail",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def blog_detail(request, slug):\n    \"\"\"Blog detail page view\"\"\"\n    post = get_object_or_404(Blog, slug=slug)\n    recent_posts = Blog.objects.exclude(id=post.id).order_by('-created_at')[:3]\n    related_posts = Blog.objects.exclude(id=post.id)[:2]\n    context = {\n        'title': post.title,\n        'meta_title': post.meta_title or post.title,\n        'meta_description': post.meta_description or post.description[:160] if post.description else '',\n        'meta_keywords': post.meta_keywords,",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "contact",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def contact(request):\n    \"\"\"Contact page view with form handling\"\"\"\n    site_settings = SiteSetting.objects.first()\n    if request.method == 'POST':\n        name = request.POST.get('name', '')\n        email = request.POST.get('email', '')\n        subject = request.POST.get('subject', '')\n        message = request.POST.get('message', '')\n        # Basic validation\n        if name and email and message:",
         "detail": "frontend.views",
         "documentation": {}
     },

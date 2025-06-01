@@ -1,0 +1,327 @@
+{% extends 'frontend/layouts/base.html' %}
+
+{% block extra_css %}
+  <style>
+    /* Product Detail Page Specific Styles */
+    .page-header {
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(230, 249, 243, 0.8)), url('/media/hero/product-detail-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .breadcrumb-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+    
+    .breadcrumb-item a:hover {
+      color: var(--primary-dark);
+    }
+    
+    .breadcrumb-item.active {
+      color: var(--text-light);
+    }
+    
+    .product-gallery {
+      height: 400px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .product-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-weight: 500;
+      z-index: 1;
+      box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+    }
+    
+    .product-thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .product-thumb {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition-base);
+    }
+    
+    .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .product-thumb.active {
+      border-color: var(--primary-color);
+    }
+    
+    .product-thumb:hover {
+      transform: translateY(-3px);
+    }
+    
+    .product-info-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 30px;
+      height: 100%;
+    }
+    
+    .product-price-box {
+      background-color: var(--secondary-color);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      margin: 25px 0;
+    }
+    
+    .product-current-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    
+    .product-old-price {
+      font-size: 1.2rem;
+      text-decoration: line-through;
+      color: var(--text-light);
+    }
+    
+    .product-discount {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    .product-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 20px;
+    }
+    
+    .product-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .product-meta-item i {
+      color: var(--primary-color);
+      width: 18px;
+    }
+    
+    .product-action-btn {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    @media (max-width: 767.98px) {
+      .product-gallery {
+        height: 300px;
+        margin-bottom: 20px;
+      }
+    
+      .product-thumb {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">
+        {% if product %}
+          {{ product.name }}
+        {% else %}
+          CRM System
+        {% endif %}
+      </h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item">
+            <a href="/">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="/products">Products</a>
+          </li>
+          <li class="breadcrumb-item active">
+            {% if product %}
+              {{ product.name }}
+            {% else %}
+              CRM System
+            {% endif %}
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Product Details Section -->
+  <section class="section-padding bg-pattern-1">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6 animate-on-scroll">
+          <div class="product-gallery">
+            <div class="product-main-image mb-4">
+              {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" id="productMainImage" />
+              {% else %}
+                <img src="https://via.placeholder.com/800x600" alt="{{ product.name }}" id="productMainImage" />
+              {% endif %}
+            </div>
+
+            {% if product_images %}
+              <div class="product-thumbnails">
+                <div class="row g-2">
+                  <div class="col-3">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="thumbnail active" onclick="changeMainImage(this.src)" />
+                  </div>
+                  {% for image in product_images %}
+                    <div class="col-3">
+                      <img src="{{ image.image.url }}" alt="{{ product.name }}" class="thumbnail" onclick="changeMainImage(this.src)" />
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="col-lg-6 animate-on-scroll">
+          <div class="product-info-card">
+            <h2>
+              {% if product %}
+                {{ product.name }}
+              {% else %}
+                CRM System
+              {% endif %}
+            </h2>
+
+            <div class="my-4">
+              {% if product %}
+                {{ product.description|safe }}
+              {% else %}
+                <p>A comprehensive customer relationship management solution for businesses of all sizes. Our CRM system helps you manage contacts, track sales, analyze customer data, and improve your overall business relationships.</p>
+                <p>This powerful tool streamlines your sales process, enhances customer service, and provides valuable insights to help your business grow.</p>
+              {% endif %}
+            </div>
+
+            <div class="product-price-box">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <span class="product-current-price">
+                    {% if product and product.sale_price %}
+                      Rs {{ product.sale_price }}
+                    {% elif product and product.price %}
+                      Rs {{ product.price }}
+                    {% else %}
+                      Rs 12,999
+                    {% endif %}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-action-btn">
+              <a href="/contact" class="btn btn-primary">Request a Quote</a>
+              <a href="/contact?subject=Demo Request for {% if product %}{{ product.name }}{% else %}CRM System{% endif %}" class="btn btn-outline">Request Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products Section -->
+  <section class="section-padding bg-subtle">
+    <div class="container">
+      <div class="text-center section-title animate-on-scroll">
+        <h2>Related Products</h2>
+        <p>{% if related_products %}You might also be interested in these products{% else %}No related products found{% endif %}</p>
+      </div>
+
+      <div class="row g-4">
+        {% for related in related_products %}
+          <div class="col-lg-4 col-md-6 animate-on-scroll">
+            <div class="related-product-card">
+              <div class="related-product-image">
+                {% if related.image %}
+                  <img src="{{ related.image.url }}" alt="{{ related.name }}" />
+                {% else %}
+                  <img src="https://via.placeholder.com/600x400" alt="{{ related.name }}" />
+                {% endif %}
+              </div>
+              <div class="related-product-content">
+                <h4>{{ related.name }}</h4>
+                <p>{{ related.description|striptags|truncatechars:100 }}</p>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div class="fw-bold text-primary">Rs {{ related.price }}</div>
+                  <a href="/products/{{ related.id }}" class="btn btn-sm btn-outline">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 animate-on-scroll">
+          <h2 class="text-white mb-3">Ready to enhance your business?</h2>
+          <p class="text-white opacity-90 mb-4">Contact us today to discuss pricing options and implementation details.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end animate-on-scroll">
+          <a href="/contact" class="btn btn-light btn-lg px-4">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    // Function to change the main product image
+    function changeMainImage(imageUrl) {
+      // Update main image
+      document.getElementById('productMainImage').src = imageUrl
+    }
+  </script>
+{% endblock %}

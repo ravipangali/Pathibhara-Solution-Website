@@ -1,0 +1,794 @@
+{% extends "frontend/layouts/base.html" %}
+
+{% block extra_css %}
+<style>
+    /* Blog Page Specific Styles */
+    .page-header {
+        background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(230,249,243,0.8)), url('/media/hero/blog-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0 80px;
+        text-align: center;
+        position: relative;
+    }
+
+    .breadcrumb-item a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+
+    .breadcrumb-item a:hover {
+        color: var(--primary-dark);
+    }
+
+    .breadcrumb-item.active {
+        color: var(--text-light);
+    }
+    
+    .featured-post {
+        position: relative;
+        height: 450px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+    }
+    
+    .featured-post-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .featured-post-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+    }
+    
+    .featured-post-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px;
+        color: white;
+    }
+    
+    .featured-post-badge {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    
+    .featured-post-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: white;
+    }
+    
+    .featured-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .featured-post-meta i {
+        margin-right: 5px;
+    }
+    
+    .post-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        height: 100%;
+        transition: var(--transition-base);
+    }
+    
+    .post-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(46,125,50,0.1);
+    }
+    
+    .post-img-container {
+        height: 220px;
+        overflow: hidden;
+    }
+    
+    .post-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    .post-card:hover .post-img {
+        transform: scale(1.1);
+    }
+    
+    .post-content {
+        padding: 25px;
+    }
+    
+    .post-category {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+        transition: var(--transition-base);
+    }
+    
+    .post-card:hover .post-category {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .post-title {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        line-height: 1.4;
+    }
+    
+    .post-title a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+    
+    .post-title a:hover {
+        color: var(--primary-color);
+    }
+    
+    .post-excerpt {
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+    }
+    
+    .post-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        color: var(--text-light);
+        padding-top: 15px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    
+    .post-author {
+        display: flex;
+        align-items: center;
+    }
+    
+    .post-author-img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    
+    .sidebar-widget {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .widget-title {
+        position: relative;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+    }
+    
+    .widget-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--primary-color);
+    }
+    
+    .category-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .category-list li {
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    
+    .category-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .category-list a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+    
+    .category-list a:hover {
+        color: var(--primary-color);
+        padding-left: 5px;
+    }
+    
+    .category-count {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        transition: var(--transition-base);
+    }
+    
+    .category-list a:hover .category-count {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .recent-post {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    
+    .recent-post:last-child {
+        margin-bottom: 0;
+    }
+    
+    .recent-post-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+    
+    .recent-post-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .recent-post-content h6 {
+        margin-bottom: 5px;
+        line-height: 1.4;
+    }
+    
+    .recent-post-content h6 a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+    
+    .recent-post-content h6 a:hover {
+        color: var(--primary-color);
+    }
+    
+    .recent-post-date {
+        color: var(--text-light);
+        font-size: 0.85rem;
+    }
+    
+    .tags-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .tag-link {
+        display: inline-block;
+        padding: 5px 12px;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        transition: var(--transition-base);
+        text-decoration: none;
+    }
+    
+    .tag-link:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+    }
+    
+    .newsletter-form .form-control {
+        border-radius: var(--border-radius);
+        padding: 12px 15px;
+        border: 1px solid rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+        transition: var(--transition-base);
+    }
+    
+    .newsletter-form .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.25rem rgba(46,125,50,0.1);
+    }
+    
+    .pagination .page-link {
+        color: var(--primary-color);
+        border-radius: 30px;
+        margin: 0 5px;
+        border: none;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        transition: var(--transition-base);
+    }
+    
+    .pagination .page-link:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+    }
+    
+    .pagination .page-item.active .page-link {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    .pagination .page-item:first-child .page-link,
+    .pagination .page-item:last-child .page-link {
+        width: auto;
+        padding: 0 15px;
+    }
+    
+    @media (max-width: 991.98px) {
+        .featured-post {
+            height: 350px;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar {
+            margin-top: 50px;
+        }
+    }
+    
+    @media (max-width: 767.98px) {
+        .post-img-container {
+            height: 180px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">Our Blog</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">Blog</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Featured Post Section -->
+<section class="section-padding bg-pattern-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 animate-on-scroll">
+                {% if featured_post %}
+                    <div class="featured-post">
+                        {% if featured_post.image %}
+                            <img src="{{ featured_post.image.url }}" alt="{{ featured_post.title }}" class="featured-post-img">
+                        {% else %}
+                            <img src="https://via.placeholder.com/1200x700" alt="Featured Post" class="featured-post-img">
+                        {% endif %}
+                        <div class="featured-post-overlay"></div>
+                        <div class="featured-post-content">
+                            <span class="featured-post-badge">Featured</span>
+                            <h2 class="featured-post-title">{{ featured_post.title }}</h2>
+                            <div class="featured-post-meta">
+                                <span><i class="far fa-calendar-alt"></i> {{ featured_post.created_at|date:"F d, Y" }}</span>
+                                <span><i class="far fa-user"></i> {{ featured_post.author.name }}</span>
+                                <span><i class="far fa-folder"></i> {{ featured_post.category.name }}</span>
+                            </div>
+                            <a href="/blog/{{ featured_post.slug }}" class="btn btn-primary mt-4">Read More</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="featured-post">
+                        <img src="https://via.placeholder.com/1200x700" alt="Featured Post" class="featured-post-img">
+                        <div class="featured-post-overlay"></div>
+                        <div class="featured-post-content">
+                            <span class="featured-post-badge">Featured</span>
+                            <h2 class="featured-post-title">The Future of Web Development: Trends to Watch in 2023</h2>
+                            <div class="featured-post-meta">
+                                <span><i class="far fa-calendar-alt"></i> June 15, 2023</span>
+                                <span><i class="far fa-user"></i> John Smith</span>
+                                <span><i class="far fa-folder"></i> Technology</span>
+                            </div>
+                            <a href="/blog/1" class="btn btn-primary mt-4">Read More</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Posts Section -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <div class="row g-4">
+                    {% if posts %}
+                        {% for post in posts %}
+                            <div class="col-md-6 animate-on-scroll">
+                                <div class="post-card">
+                                    <div class="post-img-container">
+                                        {% if post.image %}
+                                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-img">
+                                        {% else %}
+                                            <img src="https://via.placeholder.com/600x400" alt="{{ post.title }}" class="post-img">
+                                        {% endif %}
+                                    </div>
+                                    <div class="post-content">
+                                        <span class="post-category">{{ post.category.name }}</span>
+                                        <h3 class="post-title"><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h3>
+                                        <p class="post-excerpt">{{ post.content|striptags|truncatechars:120 }}</p>
+                                        <div class="post-meta">
+                                            <div class="post-author">
+                                                {% if post.author.image %}
+                                                    <img src="{{ post.author.image.url }}" alt="{{ post.author.name }}" class="post-author-img">
+                                                {% else %}
+                                                    <i class="fas fa-user mx-2"></i>
+                                                {% endif %}
+                                                <span>{{ post.author.name }}</span>
+                                            </div>
+                                            <span><i class="far fa-calendar-alt"></i> {{ post.created_at|date:"M d, Y" }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <!-- Default Blog Posts -->
+                        <div class="col-md-6 animate-on-scroll">
+                            <div class="post-card">
+                                <div class="post-img-container">
+                                    <img src="https://via.placeholder.com/600x400" alt="Mobile App Development Trends" class="post-img">
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">Mobile</span>
+                                    <h3 class="post-title"><a href="/blog/2">Mobile App Development Trends for Businesses in 2023</a></h3>
+                                    <p class="post-excerpt">Discover the latest mobile app development trends that businesses should consider to stay competitive in 2023 and beyond.</p>
+                                    <div class="post-meta">
+                                        <div class="post-author">
+                                            <img src="https://via.placeholder.com/30x30" alt="Author" class="post-author-img">
+                                            <span>Sarah Johnson</span>
+                                        </div>
+                                        <span><i class="far fa-calendar-alt"></i> May 28, 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 animate-on-scroll">
+                            <div class="post-card">
+                                <div class="post-img-container">
+                                    <img src="https://via.placeholder.com/600x400" alt="Cloud Services" class="post-img">
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">Cloud</span>
+                                    <h3 class="post-title"><a href="/blog/3">How Cloud Services Are Transforming Business Operations</a></h3>
+                                    <p class="post-excerpt">Explore how cloud services are revolutionizing business operations and providing competitive advantages in today's digital landscape.</p>
+                                    <div class="post-meta">
+                                        <div class="post-author">
+                                            <img src="https://via.placeholder.com/30x30" alt="Author" class="post-author-img">
+                                            <span>Michael Lee</span>
+                                        </div>
+                                        <span><i class="far fa-calendar-alt"></i> Apr 15, 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 animate-on-scroll">
+                            <div class="post-card">
+                                <div class="post-img-container">
+                                    <img src="https://via.placeholder.com/600x400" alt="E-commerce Strategies" class="post-img">
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">E-commerce</span>
+                                    <h3 class="post-title"><a href="/blog/4">Essential E-commerce Strategies to Boost Your Online Sales</a></h3>
+                                    <p class="post-excerpt">Learn effective e-commerce strategies that can help increase your online sales and improve customer experience on your digital storefront.</p>
+                                    <div class="post-meta">
+                                        <div class="post-author">
+                                            <img src="https://via.placeholder.com/30x30" alt="Author" class="post-author-img">
+                                            <span>Emily Chen</span>
+                                        </div>
+                                        <span><i class="far fa-calendar-alt"></i> Mar 22, 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 animate-on-scroll">
+                            <div class="post-card">
+                                <div class="post-img-container">
+                                    <img src="https://via.placeholder.com/600x400" alt="Cybersecurity" class="post-img">
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">Security</span>
+                                    <h3 class="post-title"><a href="/blog/5">Cybersecurity Best Practices for Small Businesses</a></h3>
+                                    <p class="post-excerpt">Protect your small business from cyber threats with these essential cybersecurity best practices and affordable security solutions.</p>
+                                    <div class="post-meta">
+                                        <div class="post-author">
+                                            <img src="https://via.placeholder.com/30x30" alt="Author" class="post-author-img">
+                                            <span>David Wilson</span>
+                                        </div>
+                                        <span><i class="far fa-calendar-alt"></i> Feb 10, 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 animate-on-scroll">
+                            <div class="post-card">
+                                <div class="post-img-container">
+                                    <img src="https://via.placeholder.com/600x400" alt="AI in Business" class="post-img">
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">Artificial Intelligence</span>
+                                    <h3 class="post-title"><a href="/blog/6">Practical Applications of AI in Modern Business</a></h3>
+                                    <p class="post-excerpt">Discover practical ways artificial intelligence is being implemented in businesses today and how it can benefit your organization.</p>
+                                    <div class="post-meta">
+                                        <div class="post-author">
+                                            <img src="https://via.placeholder.com/30x30" alt="Author" class="post-author-img">
+                                            <span>John Smith</span>
+                                        </div>
+                                        <span><i class="far fa-calendar-alt"></i> Jan 05, 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 animate-on-scroll">
+                            <div class="post-card">
+                                <div class="post-img-container">
+                                    <img src="https://via.placeholder.com/600x400" alt="UX Design" class="post-img">
+                                </div>
+                                <div class="post-content">
+                                    <span class="post-category">Design</span>
+                                    <h3 class="post-title"><a href="/blog/7">UX Design Principles That Improve Conversion Rates</a></h3>
+                                    <p class="post-excerpt">Learn how implementing effective UX design principles can significantly improve your website's conversion rates and user engagement.</p>
+                                    <div class="post-meta">
+                                        <div class="post-author">
+                                            <img src="https://via.placeholder.com/30x30" alt="Author" class="post-author-img">
+                                            <span>Sarah Johnson</span>
+                                        </div>
+                                        <span><i class="far fa-calendar-alt"></i> Dec 18, 2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Pagination -->
+                <div class="d-flex justify-content-center mt-5 animate-on-scroll">
+                    <nav aria-label="Blog pagination">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fas fa-chevron-left small"></i> Prev</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">Next <i class="fas fa-chevron-right small"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4 sidebar">
+                <!-- Search Widget -->
+                <div class="sidebar-widget animate-on-scroll">
+                    <h4 class="widget-title">Search</h4>
+                    <form action="#" method="get">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Categories Widget -->
+                <div class="sidebar-widget animate-on-scroll">
+                    <h4 class="widget-title">Categories</h4>
+                    <ul class="category-list">
+                        {% if categories %}
+                            {% for category in categories %}
+                                <li>
+                                    <a href="/blog?category={{ category.slug }}">
+                                        {{ category.name }}
+                                        <span class="category-count">{{ category.post_count }}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <li>
+                                <a href="/blog?category=technology">
+                                    Technology
+                                    <span class="category-count">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog?category=web-development">
+                                    Web Development
+                                    <span class="category-count">9</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog?category=mobile">
+                                    Mobile
+                                    <span class="category-count">7</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog?category=design">
+                                    Design
+                                    <span class="category-count">6</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog?category=cloud">
+                                    Cloud
+                                    <span class="category-count">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/blog?category=security">
+                                    Security
+                                    <span class="category-count">4</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                
+                <!-- Recent Posts Widget -->
+                <div class="sidebar-widget animate-on-scroll">
+                    <h4 class="widget-title">Recent Posts</h4>
+                    {% if recent_posts %}
+                        {% for post in recent_posts %}
+                            <div class="recent-post">
+                                <div class="recent-post-img">
+                                    {% if post.image %}
+                                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                                    {% else %}
+                                        <img src="https://via.placeholder.com/80x80" alt="{{ post.title }}">
+                                    {% endif %}
+                                </div>
+                                <div class="recent-post-content">
+                                    <h6><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h6>
+                                    <span class="recent-post-date">{{ post.created_at|date:"M d, Y" }}</span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="recent-post">
+                            <div class="recent-post-img">
+                                <img src="https://via.placeholder.com/80x80" alt="Web Development Trends">
+                            </div>
+                            <div class="recent-post-content">
+                                <h6><a href="/blog/1">The Future of Web Development: Trends to Watch in 2023</a></h6>
+                                <span class="recent-post-date">Jun 15, 2023</span>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-post">
+                            <div class="recent-post-img">
+                                <img src="https://via.placeholder.com/80x80" alt="Mobile App Development">
+                            </div>
+                            <div class="recent-post-content">
+                                <h6><a href="/blog/2">Mobile App Development Trends for Businesses in 2023</a></h6>
+                                <span class="recent-post-date">May 28, 2023</span>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-post">
+                            <div class="recent-post-img">
+                                <img src="https://via.placeholder.com/80x80" alt="Cloud Services">
+                            </div>
+                            <div class="recent-post-content">
+                                <h6><a href="/blog/3">How Cloud Services Are Transforming Business Operations</a></h6>
+                                <span class="recent-post-date">Apr 15, 2023</span>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Tags Widget -->
+                <div class="sidebar-widget animate-on-scroll">
+                    <h4 class="widget-title">Popular Tags</h4>
+                    <div class="tags-list">
+                        {% if tags %}
+                            {% for tag in tags %}
+                                <a href="/blog?tag={{ tag.slug }}" class="tag-link">{{ tag.name }}</a>
+                            {% endfor %}
+                        {% else %}
+                            <a href="/blog?tag=web-development" class="tag-link">Web Development</a>
+                            <a href="/blog?tag=mobile-apps" class="tag-link">Mobile Apps</a>
+                            <a href="/blog?tag=ui-ux" class="tag-link">UI/UX</a>
+                            <a href="/blog?tag=cloud" class="tag-link">Cloud</a>
+                            <a href="/blog?tag=security" class="tag-link">Security</a>
+                            <a href="/blog?tag=ai" class="tag-link">AI</a>
+                            <a href="/blog?tag=ecommerce" class="tag-link">E-commerce</a>
+                            <a href="/blog?tag=react" class="tag-link">React</a>
+                            <a href="/blog?tag=python" class="tag-link">Python</a>
+                            <a href="/blog?tag=django" class="tag-link">Django</a>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Newsletter Widget -->
+                <div class="sidebar-widget animate-on-scroll">
+                    <h4 class="widget-title">Newsletter</h4>
+                    <p>Subscribe to our newsletter to receive the latest updates and news.</p>
+                    <form class="newsletter-form" action="#" method="post">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email Address" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 animate-on-scroll">
+                <h2 class="text-white mb-3">Want to share your knowledge?</h2>
+                <p class="text-white opacity-90 mb-4">Contact us if you're interested in contributing to our blog as a guest author.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end animate-on-scroll">
+                <a href="/contact" class="btn btn-light btn-lg px-4">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

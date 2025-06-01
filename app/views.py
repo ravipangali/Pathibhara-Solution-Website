@@ -1,4 +1,3 @@
-from django.shortcuts import render
 import uuid
 from django.http import JsonResponse
 from django.conf import settings
@@ -7,7 +6,8 @@ from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 import os
 
-# Create your views here.
+
+# Create your views here
 @csrf_exempt
 def custom_upload_function(request):
     """

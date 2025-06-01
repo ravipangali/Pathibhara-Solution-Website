@@ -1,0 +1,457 @@
+{% extends 'frontend/layouts/base.html' %}
+
+{% block extra_css %}
+  <style>
+    /* Service Detail Page Specific Styles */
+    .page-header {
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(230, 249, 243, 0.8)), url('/media/hero/service-detail-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .breadcrumb-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+    
+    .breadcrumb-item a:hover {
+      color: var(--primary-dark);
+    }
+    
+    .breadcrumb-item.active {
+      color: var(--text-light);
+    }
+    
+    .service-featured-image {
+      height: 400px;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .service-featured-image svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .service-info-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 30px;
+      height: 100%;
+    }
+    
+    .service-feature-item {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 25px;
+      height: 100%;
+      transition: var(--transition-base);
+      border-bottom: 3px solid transparent;
+    }
+    
+    .service-feature-item:hover {
+      transform: translateY(-10px);
+      border-bottom: 3px solid var(--primary-color);
+      box-shadow: 0 15px 30px rgba(46, 125, 50, 0.1);
+    }
+    
+    .service-feature-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      transition: var(--transition-base);
+    }
+    
+    .service-feature-item:hover .service-feature-icon {
+      background-color: var(--primary-color);
+      color: white;
+      transform: rotateY(180deg);
+    }
+    
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .process-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 30px;
+      height: calc(100% + 30px);
+      width: 1px;
+      background-color: var(--primary-light);
+      z-index: 0;
+    }
+    
+    .process-number {
+      min-width: 60px;
+      height: 60px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin-right: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .process-content {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 20px 25px;
+      flex: 1;
+    }
+    
+    .related-service-card {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition-base);
+      height: 100%;
+    }
+    
+    .related-service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(46, 125, 50, 0.1);
+    }
+    
+    .related-service-image {
+      height: 180px;
+      overflow: hidden;
+    }
+    
+    .related-service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .related-service-card:hover .related-service-image img {
+      transform: scale(1.1);
+    }
+    
+    .related-service-content {
+      padding: 20px;
+      background-color: white;
+    }
+    
+    @media (max-width: 767.98px) {
+      .service-featured-image {
+        height: 250px;
+        margin-bottom: 30px;
+      }
+    
+      .process-step:not(:last-child)::after {
+        display: none;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">
+        {% if service %}
+          {{ service.name }}
+        {% else %}
+          Web Development Services
+        {% endif %}
+      </h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item">
+            <a href="/">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="/services">Services</a>
+          </li>
+          <li class="breadcrumb-item active">
+            {% if service %}
+              {{ service.name }}
+            {% else %}
+              Web Development
+            {% endif %}
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Service Overview Section -->
+  <section class="section-padding bg-pattern-1">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6 animate-on-scroll">
+          <div class="service-featured-image">{{ service.icon|safe }}</div>
+        </div>
+        <div class="col-lg-6 animate-on-scroll">
+          <div class="service-info-card">
+            <h2>
+              {% if service %}
+                {{ service.name }}
+              {% else %}
+                Web Development Services
+              {% endif %}
+            </h2>
+            <div class="my-4">
+              {% if service %}
+                {{ service.description|safe }}
+              {% else %}
+                <p>Our web development services provide end-to-end solutions for businesses of all sizes. We create custom, responsive websites and web applications that are tailored to your specific needs and goals.</p>
+                <p>Using the latest technologies and best practices, our team delivers high-quality, scalable, and secure web solutions that help your business grow online.</p>
+              {% endif %}
+            </div>
+            {% comment %} <div class="d-flex flex-column gap-3 mt-4">
+              <div class="d-flex align-items-center">
+                <div class="me-3 text-primary">
+                  <i class="fas fa-check-circle fa-lg"></i>
+                </div>
+                <div>
+                  {% if service and service.experience %}
+                    <span>{{ service.experience }}+ Years of Experience</span>
+                  {% else %}
+                    <span>10+ Years of Experience</span>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="me-3 text-primary">
+                  <i class="fas fa-project-diagram fa-lg"></i>
+                </div>
+                <div>
+                  {% if service and service.projects_count %}
+                    <span>{{ service.projects_count }}+ Projects Completed</span>
+                  {% else %}
+                    <span>200+ Projects Completed</span>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="me-3 text-primary">
+                  <i class="fas fa-users fa-lg"></i>
+                </div>
+                <div>
+                  {% if service and service.team_size %}
+                    <span>{{ service.team_size }}+ Dedicated Professionals</span>
+                  {% else %}
+                    <span>20+ Dedicated Professionals</span>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="me-3 text-primary">
+                  <i class="fas fa-code fa-lg"></i>
+                </div>
+                <div>
+                  {% if service and service.technology %}
+                    <span>{{ service.technology }}</span>
+                  {% else %}
+                    <span>React, Angular, Vue, Node.js, Django, Laravel</span>
+                  {% endif %}
+                </div>
+              </div>
+            </div> {% endcomment %}
+            <div class="mt-4 pt-3">
+              <a href="/contact" class="btn btn-primary">Request a Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Features Section -->
+  {% if service_features %}
+  <section class="section-padding bg-subtle">
+    <div class="container">
+      <div class="text-center section-title animate-on-scroll">
+        <h2>Key Features</h2>
+        <p>What makes our service stand out</p>
+      </div>
+
+      <div class="row g-4">
+        {% for feature in service_features %}
+          <div class="col-lg-4 col-md-6 animate-on-scroll">
+            <div class="service-feature-item">
+              {% comment %} <div class="service-feature-icon">
+                <i class="fas {{ feature.icon|default:'fa-star' }}"></i>
+              </div> {% endcomment %}
+              <h4>{{ feature.title }}</h4>
+              <p>{{ feature.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Service Process Section -->
+  {% if service_processes %}
+  <section class="section-padding bg-white">
+    <div class="container">
+      <div class="text-center section-title animate-on-scroll">
+        <h2>Our Process</h2>
+        <p>How we deliver exceptional results</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10 animate-on-scroll">
+          {% for process in service_processes %}
+            <div class="process-step">
+              <div class="process-number">{{ forloop.counter }}</div>
+              <div class="process-content">
+                <h4>{{ process.title }}</h4>
+                <p>{{ process.description }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Testimonials Section -->
+  <section class="section-padding bg-subtle">
+    <div class="container">
+      <div class="text-center section-title animate-on-scroll">
+        <h2>Client Testimonials</h2>
+        <p>What our clients say about this service</p>
+      </div>
+
+      <div class="row g-4">
+        {% for testimonial in testimonials %}
+          <div class="col-lg-4 animate-on-scroll">
+            <div class="testimonial-card">
+              <p class="mb-4">"{{ testimonial.message }}"</p>
+              <div class="d-flex align-items-center">
+                {% if testimonial.client.image %}
+                  <img src="{{ testimonial.client.image.url }}" alt="{{ testimonial.client.name }}" class="client-image" />
+                {% else %}
+                  <img src="https://via.placeholder.com/70x70" alt="Client" class="client-image" />
+                {% endif %}
+                <div>
+                  <h5 class="mb-0">{{ testimonial.client.name }}</h5>
+                  <p class="text-primary mb-0 small">{{ testimonial.client.designation }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services Section -->
+  <section class="section-padding bg-white">
+    <div class="container">
+      <div class="text-center section-title animate-on-scroll">
+        <h2>Related Services</h2>
+        <p>You might also be interested in these services</p>
+      </div>
+
+      <div class="row g-4">
+        {% if related_services %}
+          {% for related in related_services %}
+            <div class="col-lg-4 col-md-6 animate-on-scroll">
+              <div class="card h-100 p-4 text-center">
+                <div class="service-icon">
+                  {% if related.icon %}
+                    {{ related.icon|safe }}
+                  {% else %}
+                    <i class="fas fa-cogs"></i>
+                  {% endif %}
+                </div>
+                <h4>{{ related.name }}</h4>
+                <p>{{ related.description|striptags|truncatechars:100 }}</p>
+                <div class="mt-auto pt-3">
+                  <a href="/services/{{ related.slug }}" class="btn btn-sm btn-outline">Learn More</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-lg-4 col-md-6 animate-on-scroll">
+            <div class="related-service-card">
+              <div class="related-service-image">
+                <img src="https://via.placeholder.com/600x400" alt="Mobile App Development" />
+              </div>
+              <div class="related-service-content">
+                <h4>Mobile App Development</h4>
+                <p>Native and cross-platform mobile applications for iOS and Android with intuitive interfaces.</p>
+                <a href="/services/2" class="btn btn-sm btn-outline mt-3">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 animate-on-scroll">
+            <div class="related-service-card">
+              <div class="related-service-image">
+                <img src="https://via.placeholder.com/600x400" alt="E-commerce Solutions" />
+              </div>
+              <div class="related-service-content">
+                <h4>E-commerce Solutions</h4>
+                <p>Full-featured online stores with secure payment processing and inventory management.</p>
+                <a href="/services/3" class="btn btn-sm btn-outline mt-3">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 animate-on-scroll">
+            <div class="related-service-card">
+              <div class="related-service-image">
+                <img src="https://via.placeholder.com/600x400" alt="UI/UX Design" />
+              </div>
+              <div class="related-service-content">
+                <h4>UI/UX Design</h4>
+                <p>User-centered design solutions that enhance user experience and drive engagement.</p>
+                <a href="/services/4" class="btn btn-sm btn-outline mt-3">Learn More</a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 animate-on-scroll">
+          <h2 class="text-white mb-3">Ready to discuss your project?</h2>
+          <p class="text-white opacity-90 mb-4">Contact us today for a free consultation and let's bring your vision to life.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end animate-on-scroll">
+          <a href="/contact" class="btn btn-light btn-lg px-4">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

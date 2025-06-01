@@ -52,7 +52,7 @@
                     <h4>{{ service.name }}</h4>
                     <p>{{ service.description|striptags|truncatechars:100 }}</p>
                     <div class="mt-auto pt-3">
-                        <a href="/services/{{ service.id }}" class="btn btn-sm btn-outline">Learn More</a>
+                        <a href="/services/{{ service.slug }}" class="btn btn-sm btn-outline">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -429,7 +429,7 @@
                             <span><i class="fas fa-check-circle"></i> 24/7 Support</span>
                             <span><i class="fas fa-check-circle"></i> Regular Updates</span>
                         </div>
-                        <a href="#" class="btn btn-sm btn-outline w-100 mt-3">View Details</a>
+                        <a href="/products/{{ product.slug }}" class="btn btn-sm btn-outline w-100 mt-3">View Details</a>
                     </div>
                 </div>
             </div>
@@ -539,7 +539,7 @@
                         </div>
                         <h4>{{ post.title|default:"The Future of Technology" }}</h4>
                         <p>{{ post.excerpt|default:"Exploring the latest trends and innovations in technology and how they impact businesses."|striptags|truncatechars:100 }}</p>
-                        <a href="#" class="read-more">
+                        <a href="/blog/{{ post.slug }}" class="read-more">
                             Read More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -699,7 +699,7 @@
                         {% endif %}
                         <div>
                             <h5 class="mb-0">{{ testimonial.client.name }}</h5>
-                            <p class="text-primary mb-0 small">{{ testimonial.client.designation }}</p>
+                            {% comment %} <p class="text-primary mb-0 small">{{ testimonial.client.designation }}</p> {% endcomment %}
                         </div>
                     </div>
                 </div>

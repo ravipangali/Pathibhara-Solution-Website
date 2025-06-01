@@ -1,0 +1,612 @@
+{% extends 'frontend/layouts/base.html' %}
+
+{% block extra_css %}
+  <style>
+    /* Service Page Specific Styles */
+    .page-header {
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(230, 249, 243, 0.8)), url('/media/hero/services-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .breadcrumb-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+    
+    .breadcrumb-item a:hover {
+      color: var(--primary-dark);
+    }
+    
+    .breadcrumb-item.active {
+      color: var(--text-light);
+    }
+    
+    .service-category-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .service-filter {
+      padding: 8px 20px;
+      background-color: white;
+      border: 1px solid rgba(46, 125, 50, 0.15);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition-base);
+      font-weight: 500;
+    }
+    
+    .service-filter:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--primary-light);
+    }
+    
+    .service-filter.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    .service-card-large {
+      height: 100%;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition-base);
+      background-color: white;
+    }
+    
+    .service-card-large:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(46, 125, 50, 0.1);
+    }
+    
+    .service-image {
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    
+    .service-card-large:hover .service-image img {
+      transform: scale(1.1);
+    }
+    
+    .service-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-weight: 500;
+      z-index: 1;
+      box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+    }
+    
+    .service-body {
+      padding: 30px;
+    }
+    
+    .service-details {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .service-detail {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .service-detail i {
+      color: var(--primary-color);
+      width: 18px;
+    }
+    
+    .accordion-item {
+      border: none;
+      margin-bottom: 15px;
+      border-radius: var(--border-radius) !important;
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+    }
+    
+    .accordion-button {
+      padding: 20px 25px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      background-color: white;
+    }
+    
+    .accordion-button:not(.collapsed) {
+      background-color: white;
+      color: var(--primary-color);
+      box-shadow: none;
+    }
+    
+    .accordion-button:focus {
+      box-shadow: none;
+      border-color: transparent;
+    }
+    
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232e7d32'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+    
+    .accordion-body {
+      padding: 20px 25px 30px;
+      color: var(--text-secondary);
+    }
+    
+    .process-step {
+      display: flex;
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      height: 100%;
+      transition: var(--transition-base);
+    }
+    
+    .process-step:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(46, 125, 50, 0.08);
+    }
+    
+    .process-number {
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 25px;
+    }
+    
+    .process-content {
+      padding: 25px;
+    }
+    
+    @media (max-width: 767.98px) {
+      .process-step {
+        flex-direction: column;
+      }
+    
+      .process-number {
+        padding: 10px;
+        width: 100%;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">Our Services</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item">
+            <a href="/">Home</a>
+          </li>
+          <li class="breadcrumb-item active">Services</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section-padding bg-pattern-1">
+    <div class="container">
+      <!-- Service Category Filters -->
+      <div class="service-category-filters animate-on-scroll">
+        <div class="service-filter active" data-filter="all">All Services</div>
+        {% if categories %}
+          {% for category in categories %}
+            <div class="service-filter" data-filter="{{ category.slug }}">{{ category.name }}</div>
+          {% endfor %}
+        {% else %}
+          <div class="service-filter" data-filter="web-development">Web Development</div>
+          <div class="service-filter" data-filter="mobile-apps">Mobile Apps</div>
+          <div class="service-filter" data-filter="cloud-services">Cloud Services</div>
+          <div class="service-filter" data-filter="consulting">IT Consulting</div>
+        {% endif %}
+      </div>
+
+      <!-- Services Grid -->
+      <div class="row g-4">
+        {% if services %}
+          {% for service in services %}
+            <div class="col-lg-4 col-md-6 animate-on-scroll service-item {{ service.category.slug }}">
+              <div class="card h-100 p-4 text-center">
+                <div class="service-icon">
+                  {% if service.icon %}
+                    {{ service.icon|safe }}
+                  {% else %}
+                    <i class="fas fa-cogs"></i>
+                  {% endif %}
+                </div>
+                <h4>{{ service.name }}</h4>
+                <p>{{ service.description|striptags|truncatechars:100 }}</p>
+                <div class="mt-auto pt-3">
+                  <a href="/services/{{ service.slug }}" class="btn btn-sm btn-outline">Learn More</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <!-- Default Service Cards -->
+          <div class="col-lg-4 col-md-6 animate-on-scroll service-item web-development">
+            <div class="service-card-large">
+              <div class="service-badge">Featured</div>
+              <div class="service-image">
+                <img src="https://via.placeholder.com/600x400" alt="Web Development" />
+              </div>
+              <div class="service-body">
+                <h4>Web Development</h4>
+                <p>Custom web application development using modern technologies to create responsive, user-friendly websites.</p>
+                <div class="service-details">
+                  <div class="service-detail">
+                    <i class="fas fa-check-circle"></i>
+                    <span>10+ Years Experience</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>200+ Projects Completed</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-code"></i>
+                    <span>React, Django, Node.js</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <a href="/services/1" class="btn btn-outline w-100">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 animate-on-scroll service-item mobile-apps">
+            <div class="service-card-large">
+              <div class="service-image">
+                <img src="https://via.placeholder.com/600x400" alt="Mobile App Development" />
+              </div>
+              <div class="service-body">
+                <h4>Mobile App Development</h4>
+                <p>Native and cross-platform mobile applications for iOS and Android platforms with intuitive interfaces.</p>
+                <div class="service-details">
+                  <div class="service-detail">
+                    <i class="fas fa-check-circle"></i>
+                    <span>8+ Years Experience</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>150+ Apps Developed</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-code"></i>
+                    <span>Flutter, React Native, Swift</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <a href="/services/2" class="btn btn-outline w-100">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 animate-on-scroll service-item cloud-services">
+            <div class="service-card-large">
+              <div class="service-image">
+                <img src="https://via.placeholder.com/600x400" alt="Cloud Services" />
+              </div>
+              <div class="service-body">
+                <h4>Cloud Services</h4>
+                <p>Comprehensive cloud solutions including migration, hosting, and optimization for improved performance.</p>
+                <div class="service-details">
+                  <div class="service-detail">
+                    <i class="fas fa-check-circle"></i>
+                    <span>6+ Years Experience</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>100+ Migrations Completed</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-code"></i>
+                    <span>AWS, Azure, Google Cloud</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <a href="/services/3" class="btn btn-outline w-100">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 animate-on-scroll service-item consulting">
+            <div class="service-card-large">
+              <div class="service-image">
+                <img src="https://via.placeholder.com/600x400" alt="IT Consulting" />
+              </div>
+              <div class="service-body">
+                <h4>IT Consulting</h4>
+                <p>Strategic technology consulting to help businesses leverage the right tools and processes for growth.</p>
+                <div class="service-details">
+                  <div class="service-detail">
+                    <i class="fas fa-check-circle"></i>
+                    <span>12+ Years Experience</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>300+ Clients Advised</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Business & Technical Strategy</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <a href="/services/4" class="btn btn-outline w-100">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 animate-on-scroll service-item web-development">
+            <div class="service-card-large">
+              <div class="service-image">
+                <img src="https://via.placeholder.com/600x400" alt="E-commerce Development" />
+              </div>
+              <div class="service-body">
+                <h4>E-commerce Development</h4>
+                <p>Full-featured online stores with secure payment processing, inventory management, and responsive design.</p>
+                <div class="service-details">
+                  <div class="service-detail">
+                    <i class="fas fa-check-circle"></i>
+                    <span>9+ Years Experience</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>120+ Stores Launched</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-code"></i>
+                    <span>WooCommerce, Shopify, Magento</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <a href="/services/5" class="btn btn-outline w-100">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 animate-on-scroll service-item cloud-services">
+            <div class="service-card-large">
+              <div class="service-image">
+                <img src="https://via.placeholder.com/600x400" alt="DevOps Services" />
+              </div>
+              <div class="service-body">
+                <h4>DevOps Services</h4>
+                <p>Streamlined development operations with continuous integration, delivery, and infrastructure automation.</p>
+                <div class="service-details">
+                  <div class="service-detail">
+                    <i class="fas fa-check-circle"></i>
+                    <span>7+ Years Experience</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>80+ Pipelines Implemented</span>
+                  </div>
+                  <div class="service-detail">
+                    <i class="fas fa-code"></i>
+                    <span>Jenkins, Docker, Kubernetes</span>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <a href="/services/6" class="btn btn-outline w-100">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach Section -->
+  <section class="section-padding bg-subtle">
+    <div class="container">
+      <div class="text-center section-title animate-on-scroll">
+        <h2>Our Approach</h2>
+        <p>How we deliver exceptional service and results</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="process-step">
+            <div class="process-number">01</div>
+            <div class="process-content">
+              <h5>Discovery</h5>
+              <p>We start by understanding your business goals, challenges, and requirements.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="process-step">
+            <div class="process-number">02</div>
+            <div class="process-content">
+              <h5>Planning</h5>
+              <p>Creating a detailed roadmap with timelines, milestones, and deliverables.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="process-step">
+            <div class="process-number">03</div>
+            <div class="process-content">
+              <h5>Execution</h5>
+              <p>Implementing the solution with regular updates and progress reports.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 animate-on-scroll">
+          <div class="process-step">
+            <div class="process-number">04</div>
+            <div class="process-content">
+              <h5>Support</h5>
+              <p>Ongoing maintenance, optimization, and assistance after deployment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-padding bg-white">
+    <div class="container">
+      <div class="text-center section-title animate-on-scroll">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about our services</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-10 mx-auto animate-on-scroll">
+          <div class="accordion" id="servicesAccordion">
+            {% if faqs %}
+              {% for faq in faqs %}
+                {% if forloop.first %}
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ faq.id }}"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ faq.id }}" aria-expanded="true" aria-controls="collapse{{ faq.id }}">{{ faq.question }}</button></h2>
+                    <div id="collapse{{ faq.id }}" class="accordion-collapse collapse show" aria-labelledby="heading{{ faq.id }}" data-bs-parent="#servicesAccordion">
+                      <div class="accordion-body">{{ faq.answer }}</div>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ faq.id }}"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}">{{ faq.question }}</button></h2>
+                    <div id="collapse{{ faq.id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ faq.id }}" data-bs-parent="#servicesAccordion">
+                      <div class="accordion-body">{{ faq.answer }}</div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">How long does it typically take to complete a project?</button></h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#servicesAccordion">
+                  <div class="accordion-body">Project timelines vary depending on the scope and complexity. A simple website might take 2-4 weeks, while complex web applications or mobile apps can take 2-6 months. During our initial consultation, we'll provide a detailed timeline based on your specific requirements.</div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What is your pricing structure?</button></h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#servicesAccordion">
+                  <div class="accordion-body">We offer flexible pricing models including fixed-price contracts for well-defined projects, time and materials for projects with evolving requirements, and retainer arrangements for ongoing services. We'll recommend the best approach based on your project needs during our initial consultation.</div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Do you provide ongoing support after project completion?</button></h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#servicesAccordion">
+                  <div class="accordion-body">Yes, we offer various support and maintenance packages to ensure your solution continues to perform optimally. Our support includes bug fixes, security updates, performance optimization, and feature enhancements. We'll work with you to determine the right support plan for your needs.</div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">How do you ensure the quality of your deliverables?</button></h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#servicesAccordion">
+                  <div class="accordion-body">Quality assurance is integrated throughout our development process. We implement coding standards, conduct thorough testing (including unit testing, integration testing, and user acceptance testing), perform code reviews, and use automated CI/CD pipelines. Regular client demos and feedback sessions are also key components of our quality assurance process.</div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Can you work with our existing systems and technologies?</button></h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#servicesAccordion">
+                  <div class="accordion-body">Yes, we have experience integrating with a wide range of existing systems and technologies. Our team is skilled in creating custom APIs, middleware solutions, and implementing various integration patterns to ensure seamless connectivity between new and existing systems. We'll conduct a thorough assessment of your current infrastructure to determine the best integration approach.</div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 animate-on-scroll">
+          <h2 class="text-white mb-3">Ready to start your project?</h2>
+          <p class="text-white opacity-90 mb-4">Contact us today for a free consultation and let's bring your ideas to life.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end animate-on-scroll">
+          <a href="/contact" class="btn btn-light btn-lg px-4">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Service filtering functionality
+      const filterButtons = document.querySelectorAll('.service-filter')
+      const serviceItems = document.querySelectorAll('.service-item')
+    
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove('active'))
+    
+          // Add active class to clicked button
+          this.classList.add('active')
+    
+          // Get filter value
+          const filterValue = this.getAttribute('data-filter')
+    
+          // Filter services
+          serviceItems.forEach((item) => {
+            if (filterValue === 'all') {
+              item.style.display = 'block'
+            } else {
+              if (item.classList.contains(filterValue)) {
+                item.style.display = 'block'
+              } else {
+                item.style.display = 'none'
+              }
+            }
+          })
+        })
+      })
+    })
+  </script>
+{% endblock %}
