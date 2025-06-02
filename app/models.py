@@ -178,44 +178,6 @@ class ServiceProcess(models.Model):
         return f"{self.service.name} - {self.title}"
     
     
-class Project(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(upload_to='projects/', null=True, blank=True)
-    description = CKEditor5Field(config_name='extends', blank=True, null=True)
-    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
-    client = models.CharField(max_length=255, blank=True, null=True)
-    completion_date = models.DateField(blank=True, null=True)
-    demo_url = models.URLField(blank=True, null=True)
-    technologies = models.CharField(max_length=255, blank=True, null=True)
-    # SEO fields
-    meta_title = models.CharField(max_length=100, blank=True, null=True)
-    meta_description = models.TextField(max_length=160, blank=True, null=True)
-    meta_keywords = models.CharField(max_length=255, blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.name
-    
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
-    
-    
-class ProjectImage(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='projects/', null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    
-    def __str__(self):
-        return f"{self.project.name} - Image"
-    
-    
 class Blog(models.Model):
     id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=255)
@@ -375,6 +337,47 @@ class BusinessHour(models.Model):
         if self.is_closed:
             return f"{self.day}: Closed"
         return f"{self.day}: {self.opening_time} - {self.closing_time}"
+
+
+class Subsidiary(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    descriptions = CKEditor5Field(config_name='extends', blank=True, null=True)
+    logo = models.ImageField(upload_to='subsidiaries/logos/', null=True, blank=True)
+    banner = models.ImageField(upload_to='subsidiaries/banners/', null=True, blank=True)
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
+    # SEO fields
+    meta_title = models.CharField(max_length=100, blank=True, null=True)
+    meta_description = models.TextField(max_length=160, blank=True, null=True)
+    meta_keywords = models.CharField(max_length=255, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = "Subsidiaries"
+
+
+class SubsidiaryProducts(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    subsidiary = models.ForeignKey(Subsidiary, on_delete=models.CASCADE, related_name='subsidiary_products')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_subsidiaries')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.subsidiary.name} - {self.product.name}"
+
+    class Meta:
+        unique_together = ('subsidiary', 'product')
+        verbose_name_plural = "Subsidiary Products"
 
 
 

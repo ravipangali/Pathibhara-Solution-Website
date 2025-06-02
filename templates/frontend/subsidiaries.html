@@ -1,0 +1,522 @@
+{% extends "frontend/layouts/base.html" %}
+
+{% block extra_css %}
+<style>
+    /* Subsidiaries Page Specific Styles */
+    .page-header {
+        background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(230,249,243,0.8)), url('/media/hero/subsidiaries-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0 80px;
+        text-align: center;
+        position: relative;
+    }
+
+    .breadcrumb-item a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+
+    .breadcrumb-item a:hover {
+        color: var(--primary-dark);
+    }
+
+    .breadcrumb-item.active {
+        color: var(--text-light);
+    }
+    
+    .subsidiary-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        height: 100%;
+        transition: var(--transition-base);
+        position: relative;
+    }
+    
+    .subsidiary-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 50px rgba(46,125,50,0.15);
+    }
+    
+    .subsidiary-banner {
+        height: 280px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .subsidiary-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    .subsidiary-card:hover .subsidiary-banner img {
+        transform: scale(1.1);
+    }
+    
+    .subsidiary-banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+        opacity: 0;
+        transition: var(--transition-base);
+    }
+    
+    .subsidiary-card:hover .subsidiary-banner-overlay {
+        opacity: 1;
+    }
+    
+    .subsidiary-logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 80px;
+        height: 80px;
+        background-color: white;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-base);
+    }
+    
+    .subsidiary-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .subsidiary-card:hover .subsidiary-logo {
+        transform: scale(1.1);
+    }
+    
+    .subsidiary-content {
+        padding: 30px;
+    }
+    
+    .subsidiary-title {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+    
+    .subsidiary-title a {
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+    
+    .subsidiary-title a:hover {
+        color: var(--primary-color);
+    }
+    
+    .subsidiary-description {
+        color: var(--text-secondary);
+        margin-bottom: 25px;
+        line-height: 1.6;
+    }
+    
+    .subsidiary-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    
+    .subsidiary-products-count {
+        display: flex;
+        align-items: center;
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+    
+    .subsidiary-products-count i {
+        margin-right: 8px;
+        color: var(--primary-color);
+    }
+    
+    .subsidiary-link {
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: var(--transition-base);
+    }
+    
+    .subsidiary-link:hover {
+        color: var(--primary-dark);
+        transform: translateX(5px);
+    }
+    
+    .subsidiary-link i {
+        margin-left: 8px;
+        transition: var(--transition-base);
+    }
+    
+    .filter-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .filter-tab {
+        padding: 12px 25px;
+        background-color: white;
+        border: 2px solid var(--secondary-color);
+        color: var(--primary-color);
+        border-radius: 30px;
+        font-weight: 500;
+        transition: var(--transition-base);
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .filter-tab:hover,
+    .filter-tab.active {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        transform: translateY(-3px);
+    }
+    
+    .stats-section {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+        border-radius: var(--border-radius);
+        padding: 40px;
+        color: white;
+        text-align: center;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+    }
+    
+    .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+    
+    @media (max-width: 991.98px) {
+        .subsidiary-banner {
+            height: 220px;
+        }
+        
+        .subsidiary-logo {
+            width: 70px;
+            height: 70px;
+            padding: 12px;
+        }
+        
+        .filter-tabs {
+            margin-bottom: 30px;
+        }
+        
+        .stats-section {
+            padding: 30px 20px;
+        }
+    }
+    
+    @media (max-width: 767.98px) {
+        .subsidiary-content {
+            padding: 25px 20px;
+        }
+        
+        .subsidiary-meta {
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .filter-tab {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">Our Subsidiaries</h1>
+        <p class="lead">Explore our diverse portfolio of subsidiary companies</p>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">Subsidiaries</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Stats Section -->
+{% comment %} <section class="section-padding bg-pattern-1">
+    <div class="container">
+        <div class="stats-section animate-on-scroll">
+            <h2 class="mb-3 text-white">Our Portfolio at a Glance</h2>
+            <p class="mb-0 opacity-90">Building a diverse ecosystem of innovative companies</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="{{ subsidiaries.count }}">0</div>
+                    <div class="stat-label">Subsidiaries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="150">0</div>
+                    <div class="stat-label">Total Products</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="25">0</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Global Partners</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> {% endcomment %}
+
+<!-- Subsidiaries Section -->
+<section class="section-padding bg-subtle">
+    <div class="container">
+        <div class="row g-4">
+            {% if subsidiaries %}
+                {% for subsidiary in subsidiaries %}
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="subsidiary-card">
+                        <div class="subsidiary-banner">
+                            {% if subsidiary.banner %}
+                                <img src="{{ subsidiary.banner.url }}" alt="{{ subsidiary.name }} Banner">
+                            {% else %}
+                                <img src="https://via.placeholder.com/600x400/2e7d32/ffffff?text={{ subsidiary.name }}" alt="{{ subsidiary.name }}">
+                            {% endif %}
+                            <div class="subsidiary-banner-overlay"></div>
+                            {% if subsidiary.logo %}
+                                <div class="subsidiary-logo">
+                                    <img src="{{ subsidiary.logo.url }}" alt="{{ subsidiary.name }} Logo">
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="subsidiary-content">
+                            <h3 class="subsidiary-title">
+                                <a href="{% url 'subsidiary_detail' subsidiary.slug %}">{{ subsidiary.name }}</a>
+                            </h3>
+                            <p class="subsidiary-description">
+                                {% if subsidiary.descriptions %}
+                                    {{ subsidiary.descriptions|striptags|truncatechars:120 }}
+                                {% else %}
+                                    Leading innovation in our industry with cutting-edge solutions and exceptional service delivery.
+                                {% endif %}
+                            </p>
+                            <div class="subsidiary-meta">
+                                <div class="subsidiary-products-count">
+                                    <i class="fas fa-cube"></i>
+                                    {{ subsidiary.subsidiary_products.count }} Products
+                                </div>
+                                <a href="{% url 'subsidiary_detail' subsidiary.slug %}" class="subsidiary-link">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Default Subsidiaries -->
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="subsidiary-card">
+                        <div class="subsidiary-banner">
+                            <img src="https://via.placeholder.com/600x400/2e7d32/ffffff?text=TechCorp" alt="TechCorp">
+                            <div class="subsidiary-banner-overlay"></div>
+                            <div class="subsidiary-logo">
+                                <img src="https://via.placeholder.com/80x80/ffffff/2e7d32?text=TC" alt="TechCorp Logo">
+                            </div>
+                        </div>
+                        <div class="subsidiary-content">
+                            <h3 class="subsidiary-title">
+                                <a href="#">TechCorp Solutions</a>
+                            </h3>
+                            <p class="subsidiary-description">
+                                Leading provider of enterprise software solutions and digital transformation services for modern businesses.
+                            </p>
+                            <div class="subsidiary-meta">
+                                <div class="subsidiary-products-count">
+                                    <i class="fas fa-cube"></i>
+                                    15 Products
+                                </div>
+                                <a href="#" class="subsidiary-link">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="subsidiary-card">
+                        <div class="subsidiary-banner">
+                            <img src="https://via.placeholder.com/600x400/1976d2/ffffff?text=FinanceHub" alt="FinanceHub">
+                            <div class="subsidiary-banner-overlay"></div>
+                            <div class="subsidiary-logo">
+                                <img src="https://via.placeholder.com/80x80/ffffff/1976d2?text=FH" alt="FinanceHub Logo">
+                            </div>
+                        </div>
+                        <div class="subsidiary-content">
+                            <h3 class="subsidiary-title">
+                                <a href="#">FinanceHub Services</a>
+                            </h3>
+                            <p class="subsidiary-description">
+                                Comprehensive financial services and investment solutions tailored for individual and corporate clients.
+                            </p>
+                            <div class="subsidiary-meta">
+                                <div class="subsidiary-products-count">
+                                    <i class="fas fa-cube"></i>
+                                    8 Products
+                                </div>
+                                <a href="#" class="subsidiary-link">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="subsidiary-card">
+                        <div class="subsidiary-banner">
+                            <img src="https://via.placeholder.com/600x400/388e3c/ffffff?text=EduTech" alt="EduTech">
+                            <div class="subsidiary-banner-overlay"></div>
+                            <div class="subsidiary-logo">
+                                <img src="https://via.placeholder.com/80x80/ffffff/388e3c?text=ET" alt="EduTech Logo">
+                            </div>
+                        </div>
+                        <div class="subsidiary-content">
+                            <h3 class="subsidiary-title">
+                                <a href="#">EduTech Innovations</a>
+                            </h3>
+                            <p class="subsidiary-description">
+                                Revolutionary educational technology solutions designed to enhance learning experiences and outcomes.
+                            </p>
+                            <div class="subsidiary-meta">
+                                <div class="subsidiary-products-count">
+                                    <i class="fas fa-cube"></i>
+                                    12 Products
+                                </div>
+                                <a href="#" class="subsidiary-link">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 animate-on-scroll">
+                <h2 class="text-white mb-3">Interested in Partnership Opportunities?</h2>
+                <p class="text-white opacity-90 mb-4">Contact us to explore collaboration opportunities with our subsidiary companies.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end animate-on-scroll">
+                <a href="/contact" class="btn btn-light btn-lg px-4">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Counter animation for stats
+        const statsNumbers = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const count = parseInt(target.getAttribute('data-count'));
+                    let current = 0;
+                    const updateCounter = () => {
+                        const increment = count / 50;
+                        if (current < count) {
+                            current += increment;
+                            target.textContent = Math.ceil(current);
+                            setTimeout(updateCounter, 30);
+                        } else {
+                            target.textContent = count;
+                        }
+                    };
+                    updateCounter();
+                    observer.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        statsNumbers.forEach(number => {
+            statsObserver.observe(number);
+        });
+        
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const subsidiaryCards = document.querySelectorAll('.subsidiary-card');
+        
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Show/hide cards based on filter
+                subsidiaryCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.closest('.col-lg-4').style.display = 'block';
+                    } else {
+                        // This would need data attributes on cards for real filtering
+                        card.closest('.col-lg-4').style.display = 'block';
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock %} 

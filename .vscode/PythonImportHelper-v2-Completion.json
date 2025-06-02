@@ -90,6 +90,30 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -380,22 +404,6 @@
         "documentation": {}
     },
     {
-        "label": "Project",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProjectImage",
-        "importPath": "app.models",
-        "description": "app.models",
-        "isExtraImport": true,
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
         "label": "Service",
         "importPath": "app.models",
         "description": "app.models",
@@ -469,6 +477,22 @@
     },
     {
         "label": "BusinessHour",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Subsidiary",
+        "importPath": "app.models",
+        "description": "app.models",
+        "isExtraImport": true,
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubsidiaryProducts",
         "importPath": "app.models",
         "description": "app.models",
         "isExtraImport": true,
@@ -569,20 +593,29 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0005_subsidiary_subsidiaryproducts",
+        "description": "app.migrations.0005_subsidiary_subsidiaryproducts",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0004_sitesetting_map_url'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Subsidiary',\n            fields=[\n                ('id', models.BigAutoField(primary_key=True, serialize=False)),\n                ('name', models.CharField(max_length=255)),",
+        "detail": "app.migrations.0005_subsidiary_subsidiaryproducts",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0006_remove_project_models",
+        "description": "app.migrations.0006_remove_project_models",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('app', '0005_subsidiary_subsidiaryproducts'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='projectimage',\n            name='project',\n        ),\n        migrations.DeleteModel(",
+        "detail": "app.migrations.0006_remove_project_models",
+        "documentation": {}
+    },
+    {
         "label": "ProductImageInline",
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class ProductImageInline(admin.StackedInline):\n    model = ProductImage\n    extra = 1\nclass ProjectImageInline(admin.StackedInline):\n    model = ProjectImage\n    extra = 1\nclass TestimonialInline(admin.StackedInline):\n    model = Testimonial\n    extra = 1\nclass ServiceFeatureInline(admin.StackedInline):",
-        "detail": "app.admin",
-        "documentation": {}
-    },
-    {
-        "label": "ProjectImageInline",
-        "kind": 6,
-        "importPath": "app.admin",
-        "description": "app.admin",
-        "peekOfCode": "class ProjectImageInline(admin.StackedInline):\n    model = ProjectImage\n    extra = 1\nclass TestimonialInline(admin.StackedInline):\n    model = Testimonial\n    extra = 1\nclass ServiceFeatureInline(admin.StackedInline):\n    model = ServiceFeature\n    extra = 1\nclass ServiceProcessInline(admin.StackedInline):",
+        "peekOfCode": "class ProductImageInline(admin.StackedInline):\n    model = ProductImage\n    extra = 1\nclass TestimonialInline(admin.StackedInline):\n    model = Testimonial\n    extra = 1\nclass ServiceFeatureInline(admin.StackedInline):\n    model = ServiceFeature\n    extra = 1\nclass ServiceProcessInline(admin.StackedInline):",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -677,15 +710,6 @@
         "documentation": {}
     },
     {
-        "label": "ProjectAdmin",
-        "kind": 6,
-        "importPath": "app.admin",
-        "description": "app.admin",
-        "peekOfCode": "class ProjectAdmin(admin.ModelAdmin):\n    list_display = ['name', 'category', 'client', 'completion_date', 'image_tag', 'created_at']\n    search_fields = ['name', 'client']\n    list_filter = ['category', 'completion_date']\n    inlines = [ProjectImageInline]\n    prepopulated_fields = {'slug': ('name',)}\n    fieldsets = (\n        (None, {\n            'fields': ('name', 'category', 'image', 'slug')\n        }),",
-        "detail": "app.admin",
-        "documentation": {}
-    },
-    {
         "label": "BlogAdmin",
         "kind": 6,
         "importPath": "app.admin",
@@ -717,7 +741,7 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class ContactAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'subject', 'created_at']\n    search_fields = ['name', 'email', 'subject']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']\n    def get_readonly_fields(self, request, obj=None):\n        return [f.name for f in self.model._meta.fields]\n    def has_add_permission(self, request):\n        return False\n# @admin.register(ServiceFeature)",
+        "peekOfCode": "class ContactAdmin(admin.ModelAdmin):\n    list_display = ['name', 'email', 'subject', 'created_at']\n    search_fields = ['name', 'email', 'subject']\n    date_hierarchy = 'created_at'\n    ordering = ['-created_at']\n    def get_readonly_fields(self, request, obj=None):\n        return [f.name for f in self.model._meta.fields]\n    def has_add_permission(self, request):\n        return False\n@admin.register(Milestone)",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -762,7 +786,34 @@
         "kind": 6,
         "importPath": "app.admin",
         "description": "app.admin",
-        "peekOfCode": "class BusinessHourAdmin(admin.ModelAdmin):\n    list_display = ['day', 'opening_time', 'closing_time', 'is_closed', 'order']\n    list_editable = ['opening_time', 'closing_time', 'is_closed', 'order']\n    ordering = ['order']\n    fields = ('day', 'opening_time', 'closing_time', 'is_closed', 'order')",
+        "peekOfCode": "class BusinessHourAdmin(admin.ModelAdmin):\n    list_display = ['day', 'opening_time', 'closing_time', 'is_closed', 'order']\n    list_editable = ['opening_time', 'closing_time', 'is_closed', 'order']\n    ordering = ['order']\n    fields = ('day', 'opening_time', 'closing_time', 'is_closed', 'order')\n# Subsidiary Products Inline\nclass SubsidiaryProductsInline(admin.StackedInline):\n    model = SubsidiaryProducts\n    extra = 1\n    autocomplete_fields = ['product']",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SubsidiaryProductsInline",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class SubsidiaryProductsInline(admin.StackedInline):\n    model = SubsidiaryProducts\n    extra = 1\n    autocomplete_fields = ['product']\n@admin.register(Subsidiary)\nclass SubsidiaryAdmin(admin.ModelAdmin):\n    list_display = ['name', 'logo_tag', 'banner_tag', 'product_count', 'created_at']\n    search_fields = ['name', 'descriptions']\n    prepopulated_fields = {'slug': ('name',)}\n    inlines = [SubsidiaryProductsInline]",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SubsidiaryAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class SubsidiaryAdmin(admin.ModelAdmin):\n    list_display = ['name', 'logo_tag', 'banner_tag', 'product_count', 'created_at']\n    search_fields = ['name', 'descriptions']\n    prepopulated_fields = {'slug': ('name',)}\n    inlines = [SubsidiaryProductsInline]\n    fieldsets = (\n        (None, {\n            'fields': ('name', 'slug')\n        }),\n        ('Media', {",
+        "detail": "app.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SubsidiaryProductsAdmin",
+        "kind": 6,
+        "importPath": "app.admin",
+        "description": "app.admin",
+        "peekOfCode": "class SubsidiaryProductsAdmin(admin.ModelAdmin):\n    list_display = ['subsidiary', 'product', 'created_at']\n    search_fields = ['subsidiary__name', 'product__name']\n    list_filter = ['subsidiary', 'product__category']\n    autocomplete_fields = ['subsidiary', 'product']\n    ordering = ['subsidiary', 'product']",
         "detail": "app.admin",
         "documentation": {}
     },
@@ -857,24 +908,6 @@
         "documentation": {}
     },
     {
-        "label": "Project",
-        "kind": 6,
-        "importPath": "app.models",
-        "description": "app.models",
-        "peekOfCode": "class Project(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)\n    image = models.ImageField(upload_to='projects/', null=True, blank=True)\n    description = CKEditor5Field(config_name='extends', blank=True, null=True)\n    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)\n    client = models.CharField(max_length=255, blank=True, null=True)\n    completion_date = models.DateField(blank=True, null=True)\n    demo_url = models.URLField(blank=True, null=True)",
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
-        "label": "ProjectImage",
-        "kind": 6,
-        "importPath": "app.models",
-        "description": "app.models",
-        "peekOfCode": "class ProjectImage(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='images')\n    image = models.ImageField(upload_to='projects/', null=True, blank=True)\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return f\"{self.project.name} - Image\"\nclass Blog(models.Model):\n    id = models.BigAutoField(primary_key=True)",
-        "detail": "app.models",
-        "documentation": {}
-    },
-    {
         "label": "Blog",
         "kind": 6,
         "importPath": "app.models",
@@ -965,6 +998,24 @@
         "documentation": {}
     },
     {
+        "label": "Subsidiary",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class Subsidiary(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    descriptions = CKEditor5Field(config_name='extends', blank=True, null=True)\n    logo = models.ImageField(upload_to='subsidiaries/logos/', null=True, blank=True)\n    banner = models.ImageField(upload_to='subsidiaries/banners/', null=True, blank=True)\n    slug = models.SlugField(max_length=255, unique=True, blank=True)\n    # SEO fields\n    meta_title = models.CharField(max_length=100, blank=True, null=True)\n    meta_description = models.TextField(max_length=160, blank=True, null=True)",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubsidiaryProducts",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class SubsidiaryProducts(models.Model):\n    id = models.BigAutoField(primary_key=True)\n    subsidiary = models.ForeignKey(Subsidiary, on_delete=models.CASCADE, related_name='subsidiary_products')\n    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_subsidiaries')\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self):\n        return f\"{self.subsidiary.name} - {self.product.name}\"\n    class Meta:\n        unique_together = ('subsidiary', 'product')",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "app.urls",
@@ -996,7 +1047,7 @@
         "kind": 5,
         "importPath": "frontend.urls",
         "description": "frontend.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    path('about/', views.about, name='about'),\n    path('services/', views.services, name='services'),\n    path('services/<slug:slug>/', views.service_detail, name='service_detail'),\n    path('products/', views.products, name='products'),\n    path('products/<slug:slug>/', views.product_detail, name='product_detail'),\n    path('projects/', views.projects, name='projects'),\n    path('projects/<slug:slug>/', views.project_detail, name='project_detail'),\n    path('blog/', views.blog, name='blog'),",
+        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    path('about/', views.about, name='about'),\n    path('services/', views.services, name='services'),\n    path('services/<slug:slug>/', views.service_detail, name='service_detail'),\n    path('products/', views.products, name='products'),\n    path('products/<slug:slug>/', views.product_detail, name='product_detail'),\n    path('subsidiaries/', views.subsidiaries, name='subsidiaries'),\n    path('subsidiaries/<slug:slug>/', views.subsidiary_detail, name='subsidiary_detail'),\n    path('blog/', views.blog, name='blog'),",
         "detail": "frontend.urls",
         "documentation": {}
     },
@@ -1005,7 +1056,7 @@
         "kind": 2,
         "importPath": "frontend.views",
         "description": "frontend.views",
-        "peekOfCode": "def home(request):\n    data = {\n        'site_settings': SiteSetting.objects.first(),\n        'services': Service.objects.all(),\n        'about': About.objects.first(),\n        'projects': Project.objects.all(),\n        'testimonials': Testimonial.objects.all(),\n        'team': OurTeam.objects.all(),\n        'clients': Client.objects.all(),\n        'blogs': Blog.objects.all(),",
+        "peekOfCode": "def home(request):\n    data = {\n        'site_settings': SiteSetting.objects.first(),\n        'services': Service.objects.all(),\n        'about': About.objects.first(),\n        'subsidiaries': Subsidiary.objects.all(),\n        'testimonials': Testimonial.objects.all(),\n        'team': OurTeam.objects.all(),\n        'clients': Client.objects.all(),\n        'blogs': Blog.objects.all(),",
         "detail": "frontend.views",
         "documentation": {}
     },
@@ -1055,24 +1106,6 @@
         "documentation": {}
     },
     {
-        "label": "projects",
-        "kind": 2,
-        "importPath": "frontend.views",
-        "description": "frontend.views",
-        "peekOfCode": "def projects(request):\n    \"\"\"Projects page view\"\"\"\n    context = {\n        'title': 'Our Projects',\n        'testimonials': Testimonial.objects.all(),\n        'projects': Project.objects.all(),\n        'categories': Category.objects.all(),\n        'stats': Statistic.objects.all(),\n        'site_settings': SiteSetting.objects.first(),\n    }",
-        "detail": "frontend.views",
-        "documentation": {}
-    },
-    {
-        "label": "project_detail",
-        "kind": 2,
-        "importPath": "frontend.views",
-        "description": "frontend.views",
-        "peekOfCode": "def project_detail(request, slug):\n    \"\"\"Project detail page view\"\"\"\n    project = get_object_or_404(Project, slug=slug)\n    project_images = project.images.all() if hasattr(project, 'images') else []\n    related_projects = Project.objects.exclude(id=project.id)[:3]\n    context = {\n        'title': project.name,\n        'meta_title': project.meta_title or project.name,\n        'meta_description': project.meta_description or project.description[:160] if project.description else '',\n        'meta_keywords': project.meta_keywords,",
-        "detail": "frontend.views",
-        "documentation": {}
-    },
-    {
         "label": "blog",
         "kind": 2,
         "importPath": "frontend.views",
@@ -1096,6 +1129,24 @@
         "importPath": "frontend.views",
         "description": "frontend.views",
         "peekOfCode": "def contact(request):\n    \"\"\"Contact page view with form handling\"\"\"\n    site_settings = SiteSetting.objects.first()\n    if request.method == 'POST':\n        name = request.POST.get('name', '')\n        email = request.POST.get('email', '')\n        subject = request.POST.get('subject', '')\n        message = request.POST.get('message', '')\n        # Basic validation\n        if name and email and message:",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "subsidiaries",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def subsidiaries(request):\n    \"\"\"Subsidiaries page view\"\"\"\n    context = {\n        'title': 'Our Subsidiaries',\n        'meta_title': 'Our Subsidiaries | Company Portfolio',\n        'meta_description': 'Explore our subsidiary companies and their product offerings.',\n        'subsidiaries': Subsidiary.objects.all(),\n        'site_settings': SiteSetting.objects.first(),\n    }\n    return render(request, 'frontend/subsidiaries.html', context)",
+        "detail": "frontend.views",
+        "documentation": {}
+    },
+    {
+        "label": "subsidiary_detail",
+        "kind": 2,
+        "importPath": "frontend.views",
+        "description": "frontend.views",
+        "peekOfCode": "def subsidiary_detail(request, slug):\n    \"\"\"Subsidiary detail page view\"\"\"\n    subsidiary = get_object_or_404(Subsidiary, slug=slug)\n    subsidiary_products = SubsidiaryProducts.objects.filter(subsidiary=subsidiary).select_related('product')\n    related_subsidiaries = Subsidiary.objects.exclude(id=subsidiary.id)[:3]\n    context = {\n        'title': subsidiary.name,\n        'meta_title': subsidiary.meta_title or subsidiary.name,\n        'meta_description': subsidiary.meta_description or subsidiary.descriptions[:160] if subsidiary.descriptions else '',\n        'meta_keywords': subsidiary.meta_keywords,",
         "detail": "frontend.views",
         "documentation": {}
     },

@@ -1,0 +1,793 @@
+{% extends "frontend/layouts/base.html" %}
+
+{% block extra_css %}
+<style>
+    /* Subsidiary Detail Page Specific Styles */
+    .hero-section {
+        position: relative;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+        overflow: hidden;
+    }
+    
+    .hero-banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+        z-index: 1;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+    }
+    
+    .hero-logo {
+        width: 120px;
+        height: 120px;
+        background-color: white;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    .hero-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero-description {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+    
+    .hero-stats {
+        display: flex;
+        gap: 40px;
+        margin-top: 40px;
+    }
+    
+    .hero-stat {
+        text-align: center;
+    }
+    
+    .hero-stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        display: block;
+    }
+    
+    .hero-stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .breadcrumb-section {
+        background-color: var(--secondary-color);
+        padding: 15px 0;
+    }
+    
+    .breadcrumb {
+        margin: 0;
+    }
+    
+    .breadcrumb-item a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+    
+    .breadcrumb-item a:hover {
+        color: var(--primary-dark);
+    }
+    
+    .breadcrumb-item.active {
+        color: var(--text-secondary);
+    }
+    
+    .content-section {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        padding: 50px;
+        margin: -80px 0 50px 0;
+        position: relative;
+        z-index: 3;
+    }
+    
+    .content-title {
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .content-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        border-radius: 2px;
+    }
+    
+    .subsidiary-details {
+        line-height: 1.8;
+        color: var(--text-secondary);
+    }
+    
+    .subsidiary-details h2,
+    .subsidiary-details h3 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+    
+    .subsidiary-details p {
+        margin-bottom: 20px;
+    }
+    
+    .subsidiary-details ul,
+    .subsidiary-details ol {
+        margin-bottom: 25px;
+        padding-left: 25px;
+    }
+    
+    .subsidiary-details li {
+        margin-bottom: 8px;
+    }
+    
+    .products-section {
+        background-color: rgba(46,125,50,0.02);
+        padding: 80px 0;
+    }
+    
+    .product-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        height: 100%;
+        transition: var(--transition-base);
+        border: 1px solid rgba(46,125,50,0.1);
+    }
+    
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(46,125,50,0.15);
+        border-color: var(--primary-color);
+    }
+    
+    .product-image {
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+    
+    .product-card:hover .product-image img {
+        transform: scale(1.1);
+    }
+    
+    .product-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(46,125,50,0.8) 100%);
+        opacity: 0;
+        transition: var(--transition-base);
+        display: flex;
+        align-items: flex-end;
+        padding: 25px;
+    }
+    
+    .product-card:hover .product-overlay {
+        opacity: 1;
+    }
+    
+    .product-overlay-content {
+        color: white;
+    }
+    
+    .product-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 5px;
+    }
+    
+    .product-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .product-content {
+        padding: 30px;
+    }
+    
+    .product-title {
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+    
+    .product-title a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+    
+    .product-title a:hover {
+        color: var(--primary-color);
+    }
+    
+    .product-description {
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    .product-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    
+    .product-category {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .product-link {
+        color: var(--primary-color);
+        font-weight: 500;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: var(--transition-base);
+    }
+    
+    .product-link:hover {
+        color: var(--primary-dark);
+        transform: translateX(5px);
+    }
+    
+    .product-link i {
+        margin-left: 8px;
+    }
+    
+    .related-section {
+        background-color: white;
+        padding: 80px 0;
+    }
+    
+    .related-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        height: 100%;
+        transition: var(--transition-base);
+    }
+    
+    .related-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(46,125,50,0.1);
+    }
+    
+    .related-image {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .related-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+    
+    .related-card:hover .related-image img {
+        transform: scale(1.1);
+    }
+    
+    .related-logo {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border-radius: 8px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .related-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .related-content {
+        padding: 25px;
+    }
+    
+    .related-title {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    
+    .related-title a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+    
+    .related-title a:hover {
+        color: var(--primary-color);
+    }
+    
+    .related-description {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    @media (max-width: 991.98px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+        }
+        
+        .hero-stats {
+            gap: 30px;
+        }
+        
+        .content-section {
+            padding: 40px 30px;
+            margin-top: -60px;
+        }
+        
+        .hero-logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 25px;
+        }
+    }
+    
+    @media (max-width: 767.98px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .hero-stats {
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .content-section {
+            padding: 30px 20px;
+        }
+        
+        .product-content {
+            padding: 25px 20px;
+        }
+        
+        .related-content {
+            padding: 20px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    {% if subsidiary.banner %}
+        <img src="{{ subsidiary.banner.url }}" alt="{{ subsidiary.name }} Banner" class="hero-banner">
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="hero-content animate-on-scroll">
+                    {% if subsidiary.logo %}
+                        <div class="hero-logo">
+                            <img src="{{ subsidiary.logo.url }}" alt="{{ subsidiary.name }} Logo">
+                        </div>
+                    {% endif %}
+                    <h1 class="hero-title text-white">
+                        {% if subsidiary %}
+                            {{ subsidiary.name }}
+                        {% else %}
+                            TechCorp Solutions
+                        {% endif %}
+                    </h1>
+                    <p class="hero-description">
+                        {% if subsidiary.descriptions %}
+                            {{ subsidiary.descriptions|striptags|truncatechars:200 }}
+                        {% else %}
+                            Leading provider of enterprise software solutions and digital transformation services for modern businesses worldwide.
+                        {% endif %}
+                    </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="{{ subsidiary_products.count }}">0</span>
+                            <span class="hero-stat-label">Products</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="50">0</span>
+                            <span class="hero-stat-label">Countries</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number" data-count="5000">0</span>
+                            <span class="hero-stat-label">Clients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section class="breadcrumb-section">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'subsidiaries' %}">Subsidiaries</a></li>
+                <li class="breadcrumb-item active">
+                    {% if subsidiary %}
+                        {{ subsidiary.name }}
+                    {% else %}
+                        TechCorp Solutions
+                    {% endif %}
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="content-section animate-on-scroll">
+            <h2 class="content-title">About 
+                {% if subsidiary %}
+                    {{ subsidiary.name }}
+                {% else %}
+                    TechCorp Solutions
+                {% endif %}
+            </h2>
+            <div class="subsidiary-details">
+                {% if subsidiary.descriptions %}
+                    {{ subsidiary.descriptions|safe }}
+                {% else %}
+                    <p>TechCorp Solutions stands at the forefront of technological innovation, delivering cutting-edge software solutions that transform businesses across industries. Founded with a vision to bridge the gap between complex technology and practical business needs, we have grown to become a trusted partner for organizations seeking digital transformation.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>To empower businesses through innovative technology solutions that enhance efficiency, drive growth, and create lasting value. We are committed to delivering high-quality software that exceeds client expectations and helps them achieve their strategic objectives.</p>
+                    
+                    <h3>Core Services</h3>
+                    <ul>
+                        <li>Enterprise Software Development</li>
+                        <li>Cloud Migration and Management</li>
+                        <li>Digital Transformation Consulting</li>
+                        <li>Data Analytics and Business Intelligence</li>
+                        <li>Cybersecurity Solutions</li>
+                        <li>Mobile Application Development</li>
+                    </ul>
+                    
+                    <h3>Why Choose Us</h3>
+                    <p>Our team of expert developers, consultants, and project managers brings decades of combined experience in delivering complex technology projects. We follow agile methodologies, ensuring rapid development cycles and continuous client collaboration throughout the project lifecycle.</p>
+                    
+                    <p>With a global presence and local expertise, we understand the unique challenges facing businesses in different markets. Our solutions are designed to be scalable, secure, and future-ready, ensuring long-term value for our clients' investments.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section class="products-section">
+    <div class="container">
+        <div class="text-center section-title animate-on-scroll">
+            <h2>Our Products & Solutions</h2>
+            <p>Discover the innovative products offered by 
+                {% if subsidiary %}
+                    {{ subsidiary.name }}
+                {% else %}
+                    TechCorp Solutions
+                {% endif %}
+            </p>
+        </div>
+        
+        <div class="row g-4">
+            {% if subsidiary_products %}
+                {% for sp in subsidiary_products %}
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="product-card">
+                        <div class="product-image">
+                            {% if sp.product.image %}
+                                <img src="{{ sp.product.image.url }}" alt="{{ sp.product.name }}">
+                            {% else %}
+                                <img src="https://via.placeholder.com/600x400/2e7d32/ffffff?text={{ sp.product.name }}" alt="{{ sp.product.name }}">
+                            {% endif %}
+                            <div class="product-overlay">
+                                <div class="product-overlay-content">
+                                    {% if sp.product.price %}
+                                        <div class="product-price">${{ sp.product.price }}</div>
+                                    {% endif %}
+                                    <small>Click to learn more</small>
+                                </div>
+                            </div>
+                            {% if sp.product.is_featured %}
+                                <div class="product-badge">Featured</div>
+                            {% elif sp.product.is_new %}
+                                <div class="product-badge">New</div>
+                            {% endif %}
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">
+                                <a href="{% url 'product_detail' sp.product.slug %}">{{ sp.product.name }}</a>
+                            </h4>
+                            <p class="product-description">
+                                {% if sp.product.description %}
+                                    {{ sp.product.description|striptags|truncatechars:100 }}
+                                {% else %}
+                                    Innovative solution designed to meet your business needs and drive growth.
+                                {% endif %}
+                            </p>
+                            <div class="product-meta">
+                                {% if sp.product.category %}
+                                    <span class="product-category">{{ sp.product.category.name }}</span>
+                                {% endif %}
+                                <a href="{% url 'product_detail' sp.product.slug %}" class="product-link">
+                                    View Details <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Default Products -->
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/600x400/2e7d32/ffffff?text=Enterprise+CRM" alt="Enterprise CRM">
+                            <div class="product-overlay">
+                                <div class="product-overlay-content">
+                                    <div class="product-price">$299/mo</div>
+                                    <small>Starting from</small>
+                                </div>
+                            </div>
+                            <div class="product-badge">Featured</div>
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">
+                                <a href="#">Enterprise CRM Platform</a>
+                            </h4>
+                            <p class="product-description">
+                                Comprehensive customer relationship management solution designed for large enterprises and growing businesses.
+                            </p>
+                            <div class="product-meta">
+                                <span class="product-category">Software</span>
+                                <a href="#" class="product-link">
+                                    View Details <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/600x400/1976d2/ffffff?text=Analytics+Pro" alt="Analytics Pro">
+                            <div class="product-overlay">
+                                <div class="product-overlay-content">
+                                    <div class="product-price">$199/mo</div>
+                                    <small>Starting from</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">
+                                <a href="#">Analytics Pro Dashboard</a>
+                            </h4>
+                            <p class="product-description">
+                                Advanced business intelligence and analytics platform with real-time reporting and data visualization.
+                            </p>
+                            <div class="product-meta">
+                                <span class="product-category">Analytics</span>
+                                <a href="#" class="product-link">
+                                    View Details <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 animate-on-scroll">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/600x400/388e3c/ffffff?text=Cloud+Suite" alt="Cloud Suite">
+                            <div class="product-overlay">
+                                <div class="product-overlay-content">
+                                    <div class="product-price">$399/mo</div>
+                                    <small>Starting from</small>
+                                </div>
+                            </div>
+                            <div class="product-badge">New</div>
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">
+                                <a href="#">Cloud Management Suite</a>
+                            </h4>
+                            <p class="product-description">
+                                Complete cloud infrastructure management solution with automated deployment and monitoring capabilities.
+                            </p>
+                            <div class="product-meta">
+                                <span class="product-category">Cloud</span>
+                                <a href="#" class="product-link">
+                                    View Details <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Related Subsidiaries -->
+{% if related_subsidiaries %}
+<section class="related-section">
+    <div class="container">
+        <div class="text-center section-title animate-on-scroll">
+            <h2>Other Subsidiaries</h2>
+            <p>Explore our other subsidiary companies and their offerings</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for related in related_subsidiaries %}
+            <div class="col-lg-4 col-md-6 animate-on-scroll">
+                <div class="related-card">
+                    <div class="related-image">
+                        {% if related.banner %}
+                            <img src="{{ related.banner.url }}" alt="{{ related.name }}">
+                        {% else %}
+                            <img src="https://via.placeholder.com/600x400/{{ forloop.counter|add:1976 }}d2/ffffff?text={{ related.name }}" alt="{{ related.name }}">
+                        {% endif %}
+                        {% if related.logo %}
+                            <div class="related-logo">
+                                <img src="{{ related.logo.url }}" alt="{{ related.name }} Logo">
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="related-content">
+                        <h4 class="related-title">
+                            <a href="{% url 'subsidiary_detail' related.slug %}">{{ related.name }}</a>
+                        </h4>
+                        <p class="related-description">
+                            {% if related.descriptions %}
+                                {{ related.descriptions|striptags|truncatechars:100 }}
+                            {% else %}
+                                Innovative solutions and services for modern business challenges.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="section-padding" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 animate-on-scroll">
+                <h2 class="text-white mb-3">Interested in Our Solutions?</h2>
+                <p class="text-white opacity-90 mb-4">Contact us to learn more about how our products and services can benefit your business.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end animate-on-scroll">
+                <a href="/contact" class="btn btn-light btn-lg px-4">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Counter animation for hero stats
+        const statsNumbers = document.querySelectorAll('.hero-stat-number');
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const count = parseInt(target.getAttribute('data-count'));
+                    let current = 0;
+                    const updateCounter = () => {
+                        const increment = count / 50;
+                        if (current < count) {
+                            current += increment;
+                            target.textContent = Math.ceil(current);
+                            setTimeout(updateCounter, 30);
+                        } else {
+                            target.textContent = count;
+                        }
+                    };
+                    updateCounter();
+                    observer.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        statsNumbers.forEach(number => {
+            statsObserver.observe(number);
+        });
+    });
+</script>
+{% endblock %} 

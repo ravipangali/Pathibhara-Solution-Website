@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from app.models import (About, Blog, Category, Client, OurTeam, Product, ProductImage, Project, ProjectImage,
-    Service, ServiceFeature, ServiceProcess, SiteSetting, Testimonial, Milestone, Statistic, Tag, FAQ, BusinessHour)
+from app.models import (About, Blog, Category, Client, OurTeam, Product, ProductImage,
+    Service, ServiceFeature, ServiceProcess, SiteSetting, Testimonial, Milestone, Statistic, Tag, FAQ, BusinessHour,
+    Subsidiary, SubsidiaryProducts)
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
@@ -12,7 +13,7 @@ def home(request):
         'site_settings': SiteSetting.objects.first(),
         'services': Service.objects.all(),
         'about': About.objects.first(),
-        'projects': Project.objects.all(),
+        'subsidiaries': Subsidiary.objects.all(),
         'testimonials': Testimonial.objects.all(),
         'team': OurTeam.objects.all(),
         'clients': Client.objects.all(),
@@ -99,36 +100,6 @@ def product_detail(request, slug):
     }
     return render(request, 'frontend/product_detail.html', context)
 
-def projects(request):
-    """Projects page view"""
-    context = {
-        'title': 'Our Projects',
-        'testimonials': Testimonial.objects.all(),
-        'projects': Project.objects.all(),
-        'categories': Category.objects.all(),
-        'stats': Statistic.objects.all(),
-        'site_settings': SiteSetting.objects.first(),
-    }
-    return render(request, 'frontend/projects.html', context)
-
-def project_detail(request, slug):
-    """Project detail page view"""
-    project = get_object_or_404(Project, slug=slug)
-    project_images = project.images.all() if hasattr(project, 'images') else []
-    related_projects = Project.objects.exclude(id=project.id)[:3]
-    
-    context = {
-        'title': project.name,
-        'meta_title': project.meta_title or project.name,
-        'meta_description': project.meta_description or project.description[:160] if project.description else '',
-        'meta_keywords': project.meta_keywords,
-        'project': project,
-        'project_images': project_images,
-        'related_projects': related_projects,
-        'site_settings': SiteSetting.objects.first(),
-    }
-    return render(request, 'frontend/project_detail.html', context)
-
 def blog(request):
     """Blog page view"""
     blogs = Blog.objects.all().order_by('-created_at')
@@ -207,3 +178,32 @@ def contact(request):
         'business_hours': BusinessHour.objects.all(),
     }
     return render(request, 'frontend/contact.html', context)
+
+def subsidiaries(request):
+    """Subsidiaries page view"""
+    context = {
+        'title': 'Our Subsidiaries',
+        'meta_title': 'Our Subsidiaries | Company Portfolio',
+        'meta_description': 'Explore our subsidiary companies and their product offerings.',
+        'subsidiaries': Subsidiary.objects.all(),
+        'site_settings': SiteSetting.objects.first(),
+    }
+    return render(request, 'frontend/subsidiaries.html', context)
+
+def subsidiary_detail(request, slug):
+    """Subsidiary detail page view"""
+    subsidiary = get_object_or_404(Subsidiary, slug=slug)
+    subsidiary_products = SubsidiaryProducts.objects.filter(subsidiary=subsidiary).select_related('product')
+    related_subsidiaries = Subsidiary.objects.exclude(id=subsidiary.id)[:3]
+    
+    context = {
+        'title': subsidiary.name,
+        'meta_title': subsidiary.meta_title or subsidiary.name,
+        'meta_description': subsidiary.meta_description or subsidiary.descriptions[:160] if subsidiary.descriptions else '',
+        'meta_keywords': subsidiary.meta_keywords,
+        'subsidiary': subsidiary,
+        'subsidiary_products': subsidiary_products,
+        'related_subsidiaries': related_subsidiaries,
+        'site_settings': SiteSetting.objects.first(),
+    }
+    return render(request, 'frontend/subsidiary_detail.html', context)

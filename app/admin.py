@@ -2,18 +2,14 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import (
     SiteSetting, About, OurTeam, Category, Product, ProductImage,
-    Service, ServiceFeature, ServiceProcess, Project, ProjectImage, 
-    Blog, Client, Testimonial, Contact,
-    Milestone, Statistic, Tag, BlogTag, FAQ, BusinessHour
+    Service, ServiceFeature, ServiceProcess, Blog, Client, Testimonial, Contact,
+    Milestone, Statistic, Tag, BlogTag, FAQ, BusinessHour,
+    Subsidiary, SubsidiaryProducts
 )
 
 # Inline classes for related models
 class ProductImageInline(admin.StackedInline):
     model = ProductImage
-    extra = 1
-
-class ProjectImageInline(admin.StackedInline):
-    model = ProjectImage
     extra = 1
 
 class TestimonialInline(admin.StackedInline):
@@ -156,34 +152,6 @@ class ServiceAdmin(admin.ModelAdmin):
         }),
     )
 
-@admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['name', 'category', 'client', 'completion_date', 'image_tag', 'created_at']
-    search_fields = ['name', 'client']
-    list_filter = ['category', 'completion_date']
-    inlines = [ProjectImageInline]
-    prepopulated_fields = {'slug': ('name',)}
-    fieldsets = (
-        (None, {
-            'fields': ('name', 'category', 'image', 'slug')
-        }),
-        ('Project Details', {
-            'fields': ('client', 'completion_date', 'demo_url', 'technologies')
-        }),
-        ('Content', {
-            'fields': ('description',)
-        }),
-        ('SEO', {
-            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
-            'classes': ('collapse',),
-        }),
-    )
-    def image_tag(self, obj):
-        if obj.image:
-            return format_html('<img src="{}" width="50" height="50" />', obj.image.url)
-        return None
-    image_tag.short_description = 'Image'
-
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'category', 'image_tag', 'created_at']
@@ -241,22 +209,6 @@ class ContactAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return False
 
-# @admin.register(ServiceFeature)
-# class ServiceFeatureAdmin(admin.ModelAdmin):
-#     list_display = ['title', 'service', 'order', 'created_at']
-#     list_filter = ['service']
-#     search_fields = ['title', 'service__name']
-#     list_editable = ['order']
-#     fields = ('service', 'title', 'description', 'icon', 'order')
-
-# @admin.register(ServiceProcess)
-# class ServiceProcessAdmin(admin.ModelAdmin):
-#     list_display = ['title', 'service', 'order', 'created_at']
-#     list_filter = ['service']
-#     search_fields = ['title', 'service__name']
-#     list_editable = ['order']
-#     fields = ('service', 'title', 'description', 'order')
-
 @admin.register(Milestone)
 class MilestoneAdmin(admin.ModelAdmin):
     list_display = ['year', 'title', 'order', 'created_at']
@@ -296,3 +248,55 @@ class BusinessHourAdmin(admin.ModelAdmin):
     list_editable = ['opening_time', 'closing_time', 'is_closed', 'order']
     ordering = ['order']
     fields = ('day', 'opening_time', 'closing_time', 'is_closed', 'order')
+
+# Subsidiary Products Inline
+class SubsidiaryProductsInline(admin.StackedInline):
+    model = SubsidiaryProducts
+    extra = 1
+    autocomplete_fields = ['product']
+
+@admin.register(Subsidiary)
+class SubsidiaryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'logo_tag', 'banner_tag', 'product_count', 'created_at']
+    search_fields = ['name', 'descriptions']
+    prepopulated_fields = {'slug': ('name',)}
+    inlines = [SubsidiaryProductsInline]
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'slug')
+        }),
+        ('Media', {
+            'fields': ('logo', 'banner')
+        }),
+        ('Content', {
+            'fields': ('descriptions',)
+        }),
+        ('SEO', {
+            'fields': ('meta_title', 'meta_description', 'meta_keywords'),
+            'classes': ('collapse',),
+        }),
+    )
+    
+    def logo_tag(self, obj):
+        if obj.logo:
+            return format_html('<img src="{}" width="50" height="50" style="border-radius: 8px;" />', obj.logo.url)
+        return None
+    logo_tag.short_description = 'Logo'
+    
+    def banner_tag(self, obj):
+        if obj.banner:
+            return format_html('<img src="{}" width="80" height="40" style="object-fit: cover;" />', obj.banner.url)
+        return None
+    banner_tag.short_description = 'Banner'
+    
+    def product_count(self, obj):
+        return obj.subsidiary_products.count()
+    product_count.short_description = 'Products'
+
+@admin.register(SubsidiaryProducts)
+class SubsidiaryProductsAdmin(admin.ModelAdmin):
+    list_display = ['subsidiary', 'product', 'created_at']
+    search_fields = ['subsidiary__name', 'product__name']
+    list_filter = ['subsidiary', 'product__category']
+    autocomplete_fields = ['subsidiary', 'product']
+    ordering = ['subsidiary', 'product']
