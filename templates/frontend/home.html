@@ -392,6 +392,63 @@
     </div>
 </section> {% endcomment %}
 
+<!-- Clients Section -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="text-center section-title animate-on-scroll">
+            <h2>Our Subsidiaries</h2>
+            <p>We are proud to be a part of these companies</p>
+        </div>
+        
+        <div class="client-slider animate-on-scroll">
+            <div class="row g-4 justify-content-center">
+                {% for subsidiary in subsidiaries|slice:":6" %}
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="client-card" onclick="window.location.href='/subsidiaries/{{ subsidiary.slug }}'" style="cursor: pointer;" title="{{ subsidiary.name }}">
+                        {% if subsidiary.logo %}
+                        <img src="{{ subsidiary.logo.url }}" alt="{{ subsidiary.name }}" class="client-logo">
+                        {% else %}
+                        <img src="https://via.placeholder.com/150x80?text=Client" alt="{{ subsidiary.name }}" class="client-logo">
+                        {% endif %}
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="client-card">
+                        <img src="https://via.placeholder.com/150x80?text=Client+1" alt="Client 1" class="client-logo">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="client-card">
+                        <img src="https://via.placeholder.com/150x80?text=Client+2" alt="Client 2" class="client-logo">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="client-card">
+                        <img src="https://via.placeholder.com/150x80?text=Client+3" alt="Client 3" class="client-logo">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="client-card">
+                        <img src="https://via.placeholder.com/150x80?text=Client+4" alt="Client 4" class="client-logo">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="client-card">
+                        <img src="https://via.placeholder.com/150x80?text=Client+5" alt="Client 5" class="client-logo">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="client-card">
+                        <img src="https://via.placeholder.com/150x80?text=Client+6" alt="Client 6" class="client-logo">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Products Section -->
 <section class="section-padding bg-white">
     <div class="container">
